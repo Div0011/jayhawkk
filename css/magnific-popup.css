@@ -349,3 +349,12 @@ img.mfp-img {
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px; } }
+
+        /* ===== Ensure popup stacks above fixed navbar ===== */
+        .mfp-bg {
+          z-index: 5000;
+        }
+    
+        .mfp-wrap {
+          z-index: 5001;
+        }

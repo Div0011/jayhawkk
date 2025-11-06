@@ -1,4 +1,27 @@
+/* ===== PATCH — hero carousel sizing & spacing ===== */
+.hero-carousel-wrap{
+  padding: 6rem 0 4rem;
+  height: 82vh;                   /* visible but not too tall */
+  min-height: 560px;
+  border: none;                   /* remove debug border */
+}
+@media (max-width: 991.98px){
+  .hero-carousel-wrap{ height: auto; min-height: 520px; padding: 4rem 0 3rem; }
+}
+/* ===== PATCH — hero carousel sizing & spacing ===== */
 .hero-carousel-wrap {
-  padding: 8rem 0;
-  height: 100vh;
-  border: 1px solid red; }
+  padding: 6rem 0 4rem;
+  height: 82vh;
+  /* visible but not too tall */
+  min-height: 560px;
+  border: none;
+  /* remove debug border */
+}
+
+@media (max-width: 991.98px) {
+  .hero-carousel-wrap {
+    height: auto;
+    min-height: 520px;
+    padding: 4rem 0 3rem;
+  }
+}
