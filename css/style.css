@@ -1390,3 +1390,254 @@ a[data-mfp]:hover::before {
   filter: blur(20px);
   transform: scale(1.02);
 }
+
+/* =========================
+   TESTIMONIALS — Card Style
+   ========================= */
+.testi-card {
+  position: relative;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(17, 24, 39, .08);
+  padding: 28px 22px 26px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  isolation: isolate;
+  /* contain glows */
+}
+
+/* Gradient ring (outer) */
+.testi-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .9;
+}
+
+/* Warm backlight halo */
+.testi-card::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 26px;
+  background:
+    radial-gradient(60% 60% at 50% 35%,
+      rgba(255, 225, 130, .42),
+      rgba(159, 231, 219, .26),
+      rgba(126, 138, 230, .20),
+      transparent 70%);
+  filter: blur(18px);
+  opacity: .75;
+  z-index: 0;
+  transition: opacity .25s ease, filter .25s ease, transform .25s ease;
+}
+
+.testi-card:hover::before {
+  opacity: .95;
+  filter: blur(22px);
+  transform: scale(1.01);
+}
+
+.testi-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 3px var(--primary), 0 10px 24px rgba(17, 24, 39, .12);
+}
+
+.testi-quote {
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 8px 0 14px;
+}
+
+.testi-quote::before {
+  content: "“";
+  position: absolute;
+  left: -10px;
+  top: -12px;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: rgba(44, 44, 52, .15);
+}
+
+.testi-author {
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.testi-meta {
+  font-size: .92rem;
+  color: var(--ink-50);
+}
+
+/* Optional star rating */
+.testi-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 6px 0 2px;
+}
+
+.testi-stars svg {
+  width: 18px;
+  height: 18px;
+  fill: #f6c453;
+  /* warm gold */
+}
+
+/* Ensure equal height cards per row */
+.testi-col {
+  display: flex;
+}
+
+.testi-col>.testi-card {
+  width: 100%;
+}
+
+/* Tighten the section spacing a bit for focus */
+.testimonials-section.site-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* Hero readability on this page */
+.slide-item.overlay .heading {
+  color: var(--ink);
+}
+
+.slide-item.overlay .lead {
+  color: var(--ink-70);
+}
+
+/* Make any images inside this page rounder/softer by default */
+.site-section img.img-fluid:not(.no-frame) {
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, .08);
+}
+
+/* === Magnific Tiles (image + text as one glowing card) === */
+.service.m-tile {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  /* keeps image + text inside soft edges */
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, .08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  isolation: isolate;
+  /* ensures pseudo elements stay behind */
+}
+
+/* Warm back-light halo behind the whole card */
+.service.m-tile::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  /* spill outside edges for glow */
+  border-radius: 22px;
+  background:
+    radial-gradient(60% 60% at 50% 35%,
+      rgba(255, 225, 130, .45),
+      /* soft yellow */
+      rgba(159, 231, 219, .28),
+      /* aqua */
+      rgba(126, 138, 230, .22),
+      /* lavender */
+      transparent 70%);
+  filter: blur(18px);
+  opacity: .75;
+  z-index: -2;
+  transition: opacity .25s ease, filter .25s ease, transform .25s ease;
+}
+
+/* Thin gradient “ring” stroke around the card */
+.service.m-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  /* ring thickness */
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary, #B8B3E9), var(--secondary, #C8F0EB));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  /* Safari */
+  mask-composite: exclude;
+  /* Others */
+  pointer-events: none;
+  z-index: -1;
+  opacity: .9;
+}
+
+/* Subtle lift + brighter glow on hover */
+.service.m-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, .14);
+}
+
+.service.m-tile:hover::before {
+  opacity: .95;
+  filter: blur(22px);
+  transform: scale(1.01);
+}
+
+/* Image: fixed height + smooth top corners; no gap to text */
+.service.m-tile>a.d-block img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  /* keep all tiles same height */
+  object-fit: cover;
+  border-radius: 0;
+  /* corners handled by wrapper */
+  margin: 0;
+}
+
+/* Text part: transparent, centered, even height */
+.service.m-tile .service-inner {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 22px 18px;
+  min-height: 160px;
+  /* unify text block height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #2C2C34;
+}
+
+.service.m-tile .service-inner h3 {
+  margin-bottom: 8px;
+}
+
+/* Smaller image height on mobile to balance */
+@media (max-width: 991.98px) {
+  .service.m-tile>a.d-block img {
+    height: 180px;
+  }
+}
