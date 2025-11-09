@@ -1,8 +1,4 @@
-/* ============================================================
-  JAYHAWKK | Caring Hearts, Healing Hands
-  Final Light Theme (Fixed Nav, Uniform Cards, Soft Borders)
-  ============================================================ */
-
+/* ============================================================ JAYHAWKK | Caring Hearts, Healing Hands Final Light Theme (Fixed Nav, Uniform Cards, Soft Borders) ============================================================ */
 /* ---------- ROOT VARIABLES ---------- */
 :root {
   --bg-start: #F5F4FF;
@@ -50,9 +46,7 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(1000px 700px at 10% 20%, rgba(184, 179, 233, 0.15), transparent 60%),
-    radial-gradient(800px 600px at 80% 90%, rgba(200, 240, 235, 0.2), transparent 60%);
+  background: radial-gradient(1000px 700px at 10% 20%, rgba(184, 179, 233, 0.15), transparent 60%), radial-gradient(800px 600px at 80% 90%, rgba(200, 240, 235, 0.2), transparent 60%);
   mix-blend-mode: soft-light;
   opacity: 0.9;
 }
@@ -169,7 +163,6 @@ h5,
   height: var(--nav-h);
   z-index: 5000;
   /* <-- THIS IS THE FIX */
-
   background: var(--surface-light);
   box-shadow: 0 4px 15px rgba(17, 24, 39, 0.08);
   border-bottom: 1px solid rgba(35, 35, 165, 0.1);
@@ -178,7 +171,8 @@ h5,
 
 /* Pushes main content down to prevent overlap */
 .site-wrap {
-  padding-top: calc(var(--nav-h) + 4px) !important;
+  /* Set padding-top exactly equal to the navigation bar height */
+  padding-top: var(--nav-h) !important;
 }
 
 @media (max-width: 991.98px) {
@@ -266,7 +260,7 @@ h5,
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 220px;
+  min-width: 280px;
   margin-top: 10px;
   padding: 8px 0;
   background: #fff;
@@ -294,14 +288,18 @@ h5,
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li>a {
-  display: block;
-  padding: 10px 16px;
-  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li>a:hover {
-  background: #F6F4FF;
-  color: #111;
+  background: rgba(var(--primary-rgb), 0.06);
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children>a {
@@ -366,7 +364,6 @@ h5,
 .site-mobile-menu .site-nav-wrap a:hover {
   color: var(--accent);
 }
-
 
 /* ---------- HERO / SLIDER ---------- */
 .slide-item,
@@ -454,6 +451,7 @@ h5,
   flex-direction: column;
   flex: 1 1 auto;
   height: 100%;
+  isolation: isolate;
 }
 
 /* Soft Gradient Border Ring Effect */
@@ -475,7 +473,6 @@ h5,
 .card-combo:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(184, 179, 233, 0.4);
-  /* Primary glow on hover */
 }
 
 .card-combo:hover::before {
@@ -485,7 +482,6 @@ h5,
 
 .service a.d-block img {
   height: 220px;
-  /* Uniform image height */
   object-fit: cover;
   display: block;
   border-radius: 0;
@@ -494,21 +490,61 @@ h5,
 
 .service .card-combo a.d-block {
   border-radius: 18px 18px 0 0;
-  /* Match card radius top */
   overflow: hidden;
   z-index: 2;
-  /* Sit above the border pseudo-element */
 }
 
+/* Service Card ICON Wrapper (Home/Residential) */
+.service-icon-wrap,
+.service .card-combo .service-icon-wrap {
+  font-size: 56px;
+  /* Final Prominent Icon Size */
+  color: var(--primary);
+  background: var(--surface-light);
+  padding: 30px;
+  text-align: center;
+  border-radius: 18px 18px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Icon size refinement for smaller screens */
+@media (max-width: 991.98px) {
+  .service .card-combo .service-icon-wrap {
+    font-size: 38px;
+    padding: 22px 24px;
+    height: 100px;
+  }
+}
+
+
+.service-icon-wrap span,
+.service .card-combo .service-icon-wrap span {
+  transition: all 0.3s ease;
+}
+
+.card-combo:hover .service-icon-wrap {
+  color: var(--accent);
+  background: var(--surface-light);
+  transform: scale(1.05);
+}
+
+.card-combo:hover .service-icon-wrap span {
+  transform: scale(1.1);
+}
+
+/* Service Card TEXT */
 .service .service-inner {
   text-align: center;
   padding: 24px 18px;
   min-height: 180px;
-  /* Uniform text content height */
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   background: transparent;
   box-shadow: none;
   border: none;
@@ -529,6 +565,35 @@ h5,
   color: var(--ink-70);
   font-size: 14px;
 }
+
+/* Specialist Care Card Styling (Service-Inner as Card) */
+.service-inner.glass {
+  height: 100%;
+  min-height: 120px;
+  border-radius: 18px !important;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-inner.glass h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--ink);
+}
+
+.service-inner.glass:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fog-shadow-strong);
+}
+
+.service-inner.glass:hover h4 {
+  color: var(--primary);
+}
+
 
 /* ---------- COUNTERS (Clean Background) ---------- */
 .count-numbers {
@@ -561,7 +626,6 @@ h5,
   border-radius: 18px;
   box-shadow: var(--fog-shadow);
   min-height: 380px;
-  /* UNIFORM HEIGHT */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -576,7 +640,6 @@ h5,
 .testimonial:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 34px rgba(88, 138, 181, .28);
-  /* Yellow/Warm Hover Effect */
   background: radial-gradient(800px 200px at 50% -10%, var(--accent-30), transparent 60%),
     linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
 }
@@ -664,10 +727,7 @@ h5,
 .blog-entry a.d-block::before {
   inset: -12px;
   background: radial-gradient(60% 60% at 50% 35%,
-      rgba(255, 225, 130, .45),
-      rgba(159, 231, 219, .28),
-      rgba(126, 138, 230, .22),
-      transparent 70%);
+      rgba(255, 225, 130, .45), rgba(159, 231, 219, .28), rgba(126, 138, 230, .22), transparent 70%);
   filter: blur(18px);
   opacity: .75;
   z-index: -2;
@@ -695,7 +755,6 @@ h5,
 .blog-entry img.img-fluid {
   border-radius: 14px;
 }
-
 
 /* ---------- CUSTOM MEDIA ---------- */
 .custom-media .text {
@@ -734,7 +793,6 @@ h5,
 
 .categories li,
 .sidelink li {
-  list-style: none;
   position: relative;
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -895,7 +953,6 @@ figure figcaption {
   color: #aaa;
 }
 
-
 /* ---------- FOOTER (Fixed Visibility) ---------- */
 .site-footer {
   background: var(--surface-light) !important;
@@ -942,8 +999,18 @@ figure figcaption {
 
 /* ---------- MISC & RESPONSIVE ---------- */
 .bg-primary {
-  background: linear-gradient(180deg, var(--primary), var(--secondary));
-  color: var(--ink);
+  background: linear-gradient(180deg, var(--primary), var(--secondary)) !important;
+  color: var(--ink) !important;
+}
+
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary h4,
+.bg-primary p,
+.bg-primary strong,
+.bg-primary span {
+  color: var(--ink) !important;
 }
 
 .text-white {
@@ -1002,83 +1069,150 @@ figure figcaption {
 }
 
 /* ---------- PRELOADER ---------- */
-#overlayer {
-  background: linear-gradient(180deg, #fff, var(--bg-mid));
-  width: 100%;
-  height: 100%;
+.site-mobile-menu {
   position: fixed;
-  z-index: 7100;
   top: 0;
-  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  z-index: 11000;
+  transform: translateX(110%);
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: -10px 0 20px -10px rgba(0, 0, 0, .12);
+  transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+  overflow: hidden;
 }
 
-.loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 7700;
+.offcanvas-menu .site-mobile-menu {
+  transform: translateX(0%);
+  opacity: 1;
+  visibility: visible;
 }
 
-.flip {
-  animation: flip 2s ease infinite;
+.site-mobile-menu .site-mobile-menu-body {
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-@keyframes flip {
-  0% {
-    transform: perspective(400px) rotateY(0);
-  }
+.site-mobile-menu .site-nav-wrap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  40% {
-    transform: perspective(400px) rotateY(170deg);
-  }
+.site-mobile-menu .site-nav-wrap li {
+  list-style: none;
+}
 
-  80% {
-    transform: perspective(400px) rotateY(360deg);
-  }
+.site-mobile-menu .site-nav-wrap a {
+  color: #111;
+}
 
-  100% {
-    transform: perspective(400px) rotateY(360deg);
-  }
+.site-mobile-menu .site-nav-wrap a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Dropdown menu styling ---------- */
+.site-navbar .site-navigation .site-menu .has-children .dropdown {
+  min-width: 280px;
+  background: var(--surface);
+  backdrop-filter: blur(10px) saturate(120%);
+  border-radius: 18px;
+  box-shadow: var(--fog-shadow);
+  padding: 8px 0;
+}
+
+.site-navbar .site-navigation .site-menu .has-children .dropdown > li > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.site-navbar .site-navigation .site-menu .has-children .dropdown > li > a:hover {
+  background: rgba(var(--primary-rgb), 0.06);
+}
+
+/* Icon styling */
+.site-navbar .dropdown [class^="icon-"],
+.site-navbar .dropdown [class*=" icon-"] {
+  font-size: 18px;
+  color: var(--primary);
+  width: 24px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Remove inline styles from HTML */
+.icon-home3,
+.icon-users,
+.icon-medkit,
+.icon-heartbeat {
+  font-size: inherit !important;
+  color: inherit !important;
+  margin: 0 !important;
 }
 
 /* NAV: always in front */
-.sticky-wrapper{               /* neutralize the plugin wrapper */
+.sticky-wrapper {
+  /* neutralize the plugin wrapper */
   position: static !important;
   height: auto !important;
   z-index: auto !important;
 }
 
-.site-navbar{
+.site-navbar {
   position: fixed !important;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--nav-h);
-  background: #fff;                           /* solid, not transparent */
-  border-bottom: 1px solid rgba(44,44,52,.08);
-  box-shadow: 0 6px 20px rgba(17,24,39,.08);
-  backdrop-filter: none;                      /* optional: remove blur if you want zero see-through */
-  z-index: 10000 !important;                  /* <<< higher than anything else */
-  isolation: isolate;                         /* keep its children above page effects */
+  background: #fff;
+  /* solid, not transparent */
+  border-bottom: 1px solid rgba(44, 44, 52, .08);
+  box-shadow: 0 6px 20px rgba(17, 24, 39, .08);
+  backdrop-filter: none;
+  /* optional: remove blur if you want zero see-through */
+  z-index: 10000 !important;
+  /* <<< higher than anything else */
+  isolation: isolate;
+  /* keep its children above page effects */
 }
 
 /* reserve space so content doesn't slide under the fixed nav */
-.site-wrap{ padding-top: calc(var(--nav-h) + 6px) !important; }
+.site-wrap {
+  padding-top: calc(var(--nav-h) + 6px) !important;
+}
 
 /* make sure page sections sit below the nav */
-.slide-item,.cover,.site-section,.count-numbers,.site-footer{
+.slide-item,
+.cover,
+.site-section,
+.count-numbers,
+.site-footer {
   position: relative;
   z-index: 1;
 }
 
 /* dropdowns & mobile menu should still appear above the bar */
-.site-navbar .dropdown{ z-index: 10050; }
-.site-mobile-menu{ z-index: 11000; }
+.site-navbar .dropdown {
+  z-index: 10050;
+}
+
+.site-mobile-menu {
+  z-index: 11000;
+}
+
 /* end nav fixed visibility code */
-
-/* ================================
-   SERVICE CARDS — unified glow frame
-   ================================ */
-
+/* ================================ SERVICE CARDS — unified glow frame ================================ */
 /* 0) Kill any old per-image glow so it doesn't leak between image & text */
 .service a.d-block::before,
 .service a.d-block::after {
@@ -1129,12 +1263,7 @@ figure figcaption {
   /* let the halo leak outside */
   border-radius: 26px;
   /* slightly larger than the card */
-  background:
-    radial-gradient(60% 60% at 50% 35%,
-      rgba(255, 225, 130, .45),
-      rgba(159, 231, 219, .28),
-      rgba(126, 138, 230, .22),
-      transparent 70%);
+  background: radial-gradient(60% 60% at 50% 35%, rgba(255, 225, 130, .45), rgba(159, 231, 219, .28), rgba(126, 138, 230, .22), transparent 70%);
   filter: blur(18px);
   opacity: .75;
   z-index: 0;
@@ -1197,10 +1326,7 @@ figure figcaption {
   }
 }
 
-/* =========================================
-   GLOBAL TILE GLOW (cards, images, sections)
-   ========================================= */
-
+/* ========================================= GLOBAL TILE GLOW (cards, images, sections) ========================================= */
 /* 0) Make common tiles “glow-ready” (one wrapper for image + text) */
 .service .card-combo,
 .blog-entry,
@@ -1254,9 +1380,7 @@ figure figcaption {
   position: absolute;
   inset: -12px;
   border-radius: calc(18px + 8px);
-  background:
-    radial-gradient(60% 60% at 50% 35%,
-      rgba(255, 225, 130, .45),
+  background: radial-gradient(60% 60% at 50% 35%, rgba(255, 225, 130, .45),
       /* warm yellow */
       rgba(159, 231, 219, .28),
       /* aqua */
@@ -1305,32 +1429,23 @@ figure figcaption {
   content: none !important;
 }
 
-/* ===============================
-   MAGNIFIC POPUP — glowing popup
-   =============================== */
-
+/* =============================== MAGNIFIC POPUP — glowing popup =============================== */
 /* Smooth, glowing popup frame */
 .mfp-content .mfp-figure {
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, .8),
-    0 20px 40px rgba(17, 24, 39, .35),
-    0 0 60px rgba(255, 225, 130, .35);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .8), 0 20px 40px rgba(17, 24, 39, .35), 0 0 60px rgba(255, 225, 130, .35);
   /* warm outer glow */
 }
 
 /* Round the actual popup image corners */
 img.mfp-img {
   border-radius: 18px !important;
-  box-shadow:
-    0 0 0 3px #fff,
-    0 12px 28px rgba(17, 24, 39, .25);
+  box-shadow: 0 0 0 3px #fff, 0 12px 28px rgba(17, 24, 39, .25);
 }
 
-/* Optional: glow the clickable gallery thumbnails automatically
-   (use any of these classes on your anchors) */
+/* Optional: glow the clickable gallery thumbnails automatically (use any of these classes on your anchors) */
 a.image-popup,
 a.popup-image,
 a.mfp-link,
@@ -1369,12 +1484,7 @@ a[data-mfp]::before {
   position: absolute;
   inset: -12px;
   border-radius: calc(16px + 8px);
-  background:
-    radial-gradient(60% 60% at 50% 35%,
-      rgba(255, 225, 130, .42),
-      rgba(159, 231, 219, .26),
-      rgba(126, 138, 230, .20),
-      transparent 70%);
+  background: radial-gradient(60% 60% at 50% 35%, rgba(255, 225, 130, .42), rgba(159, 231, 219, .26), rgba(126, 138, 230, .20), transparent 70%);
   filter: blur(16px);
   opacity: .7;
   z-index: -1;
@@ -1391,9 +1501,7 @@ a[data-mfp]:hover::before {
   transform: scale(1.02);
 }
 
-/* =========================
-   TESTIMONIALS — Card Style
-   ========================= */
+/* ========================= TESTIMONIALS — Card Style ========================= */
 .testi-card {
   position: relative;
   border-radius: 18px;
@@ -1431,12 +1539,7 @@ a[data-mfp]:hover::before {
   position: absolute;
   inset: -12px;
   border-radius: 26px;
-  background:
-    radial-gradient(60% 60% at 50% 35%,
-      rgba(255, 225, 130, .42),
-      rgba(159, 231, 219, .26),
-      rgba(126, 138, 230, .20),
-      transparent 70%);
+  background: radial-gradient(60% 60% at 50% 35%, rgba(255, 225, 130, .42), rgba(159, 231, 219, .26), rgba(126, 138, 230, .20), transparent 70%);
   filter: blur(18px);
   opacity: .75;
   z-index: 0;
@@ -1550,16 +1653,12 @@ a[data-mfp]:hover::before {
   /* ensures pseudo elements stay behind */
 }
 
-/* Warm back-light halo behind the whole card */
 .service.m-tile::before {
   content: "";
   position: absolute;
   inset: -12px;
-  /* spill outside edges for glow */
   border-radius: 22px;
-  background:
-    radial-gradient(60% 60% at 50% 35%,
-      rgba(255, 225, 130, .45),
+  background: radial-gradient(60% 60% at 50% 35%, rgba(255, 225, 130, .45),
       /* soft yellow */
       rgba(159, 231, 219, .28),
       /* aqua */
@@ -1572,7 +1671,6 @@ a[data-mfp]:hover::before {
   transition: opacity .25s ease, filter .25s ease, transform .25s ease;
 }
 
-/* Thin gradient “ring” stroke around the card */
 .service.m-tile::after {
   content: "";
   position: absolute;
@@ -1591,7 +1689,6 @@ a[data-mfp]:hover::before {
   opacity: .9;
 }
 
-/* Subtle lift + brighter glow on hover */
 .service.m-tile:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(17, 24, 39, .14);
@@ -1603,7 +1700,6 @@ a[data-mfp]:hover::before {
   transform: scale(1.01);
 }
 
-/* Image: fixed height + smooth top corners; no gap to text */
 .service.m-tile>a.d-block img {
   display: block;
   width: 100%;
@@ -1615,7 +1711,6 @@ a[data-mfp]:hover::before {
   margin: 0;
 }
 
-/* Text part: transparent, centered, even height */
 .service.m-tile .service-inner {
   background: transparent;
   border: 0;
@@ -1631,13 +1726,374 @@ a[data-mfp]:hover::before {
   color: #2C2C34;
 }
 
-.service.m-tile .service-inner h3 {
-  margin-bottom: 8px;
-}
-
 /* Smaller image height on mobile to balance */
 @media (max-width: 991.98px) {
   .service.m-tile>a.d-block img {
     height: 180px;
   }
+}
+
+/* ---------- Video Hero Background ---------- */
+.video-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-hero #bgvideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  /* Sits behind the overlay and content */
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
+
+/* Ensure content stays on top */
+.video-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Darker overlay for video to make text readable */
+.video-hero.overlay::before {
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* ---------- Quick Contact Buttons ---------- */
+.quick-contact-buttons {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1001;
+  /* Above most content, below navbar dropdown */
+  display: flex;
+  flex-direction: column;
+}
+
+.qc-button {
+  background: var(--primary);
+  /* Uses your Lavender-gray color */
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 2px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 0 0 8px;
+  /* Rounded on the left side */
+}
+
+.qc-button:hover {
+  background: var(--accent);
+  /* Uses your Gentle Gold hover */
+  color: var(--ink);
+  transform: translateX(-5px);
+  box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Service Card Icons ---------- */
+.service-icon-wrap {
+  font-size: 50px;
+  color: var(--primary);
+  background: #fff;
+  padding: 30px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 18px 18px 0 0;
+  /* Match card radius */
+}
+
+/* Ensure the card-combo structure from your CSS is used */
+.service .card-combo .service-icon-wrap {
+  border-radius: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* --- CSS for ALL Icons on Service Cards (Home/Residential) --- */
+.service .card-combo .service-icon-wrap {
+  /* INCREASED ICON SIZE and padding */
+  font-size: 56px;
+  color: var(--primary);
+  background: var(--bg-start);
+  /* Light BG to separate icon from body */
+  padding: 30px;
+  text-align: center;
+  border-radius: 18px 18px 0 0;
+  transition: all 0.3s ease;
+}
+
+/* Yellow/Gold Interactive Hover Effect */
+.service:hover .card-combo .service-icon-wrap {
+  color: var(--accent);
+  background: var(--surface-light);
+  /* Brighter white surface on hover */
+  box-shadow: 0 0 15px var(--accent-30);
+  /* Soft accent glow */
+  transform: scale(1.05);
+  /* Subtle growth effect */
+}
+
+/* This targets the icon itself inside the wrapper */
+.service-icon-wrap span {
+  transition: all 0.3s ease;
+}
+
+.service:hover .service-icon-wrap span {
+  transform: scale(1.1);
+}
+
+/* ====== QUICK FIX PACK (paste at the END of style.css) ====== */
+
+/* 1) De-duplicate & tighten feature box icon styles */
+.feature-v1 .pagination-item .icon-wrap {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: var(--fog-shadow);
+}
+
+.feature-v1 .pagination-item .icon-wrap span {
+  font-size: 30px;
+  /* smaller so it doesn't overflow */
+  line-height: 1;
+  color: #fff;
+}
+
+/* 2) Make service-card icons slightly smaller + responsive */
+.service .card-combo .service-icon-wrap {
+  font-size: 44px;
+  /* was 56px – reduced */
+  padding: 26px 28px;
+  /* slightly tighter */
+}
+
+@media (max-width: 991.98px) {
+  .service .card-combo .service-icon-wrap {
+    font-size: 38px;
+    padding: 22px 24px;
+  }
+}
+
+/* 3) Ensure dropdown icons (including Specialist Care) render & align */
+.site-navbar .dropdown [class^="icon-"],
+.site-navbar .dropdown [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 16px;
+  /* a bit bigger for clarity */
+  color: var(--primary);
+  margin-right: 10px;
+  transition: color 0.25s ease;
+}
+
+.site-navbar .site-navigation .site-menu .has-children .dropdown>li>a {
+  display: flex;
+  align-items: flex-start; /* Changed from center to flex-start */
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 16px;
+  width: 100%; /* Ensure full width */
+}
+
+/* Adjust icon alignment and size */
+.site-navbar .dropdown [class^="icon-"],
+.site-navbar .dropdown [class*=" icon-"] {
+  font-size: 18px;
+  color: var(--primary);
+  margin-right: 10px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+  width: 24px; /* Give fixed width to icons */
+  text-align: center; /* Center the icon in its fixed width */
+}
+
+/* Fix text wrapping for longer items */
+.site-navbar .site-navigation .site-menu .has-children .dropdown>li>a span:not([class^="icon-"]) {
+  white-space: normal; /* Allow text to wrap */
+  flex-grow: 1; /* Let text take remaining space */
+  text-align: left; /* Align text to left */
+}
+
+/* Ensure dropdown width accommodates longer text */
+.site-navbar .site-navigation .site-menu .has-children .dropdown {
+  min-width: 280px;
+  padding: 8px 0;
+  border-radius: 12px;
+}
+
+/* 1. Base Dropdown Style (To remove any existing harsh shadows/gloss effects, if needed) */
+.site-navbar .site-menu .dropdown {
+  /* Optional: If the original "glass/translucent" effect uses hard shadows, remove them here */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Keep it light */
+}
+
+/* 2. Style for individual items */
+.site-navbar .site-menu .dropdown a {
+  /* Set a smooth transition for the glow effect */
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  color: #333;
+  /* Standard text color */
+}
+
+/* 3. The Glowing Hover Effect */
+.site-navbar .site-menu .dropdown a:hover {
+  /* Change the background color on hover (use a semi-transparent white/light color) */
+  background-color: rgba(245, 222, 179, 0.2);
+  /* Soft beige background */
+  /* Add the subtle "glow" using a box-shadow (soft lavender or soft gold) */
+  box-shadow: 0 0 10px rgba(230, 230, 250, 0.8),
+    /* Soft Lavender Glow */
+    0 0 20px rgba(245, 222, 179, 0.6);
+  /* Soft Beige Glow */
+  color: #000;
+  /* Darker text on hover for contrast */
+}
+
+/* 4. Optional: Highlight the inner span icons with the same color */
+.site-navbar .site-menu .dropdown a:hover span {
+  color: #F5DEB3 !important;
+  /* Forces the icon to the soft gold color */
+}
+
+/* =============================================================== */
+/* ====== CUSTOM GLOW HOVER FOR DROPDOWN MENU ITEMS (USER REQUEST) ===== */
+/* =============================================================== */
+
+/* Target the dropdown menu item link */
+.site-navbar .site-navigation .site-menu .has-children .dropdown>li>a {
+  /* Ensures smooth animation */
+  transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  border-radius: 8px;
+  /* Give the hover area soft edges */
+  margin: 4px 8px;
+  /* Add slight margin for the glow to breathe */
+  padding: 10px 12px;
+  /* Adjust padding to match new margin */
+  width: calc(100% - 16px);
+  /* Full width minus margin */
+  display: flex;
+  /* Keep layout flexible */
+  text-align: left;
+}
+
+/* 1. The Glowing Hover Effect */
+.site-navbar .site-navigation .site-menu .has-children .dropdown>li>a:hover {
+  /* Subtle background shift to accent/white to indicate activation */
+  background: rgba(255, 255, 255, 0.8);
+
+  /* Subtle Soft Golden Glow using ACCENT color and a touch of PRIMARY */
+  box-shadow: 0 0 10px rgba(184, 179, 233, 0.4),
+    /* Soft Primary (Lavender) Glow */
+    0 0 12px var(--accent-30);
+  /* Soft Accent (Gentle Gold) Glow */
+
+  /* Ensure text color stays readable */
+  color: var(--ink);
+
+  /* Remove any default box-shadow from the base <a>:hover rule if necessary */
+  /* box-shadow: none; */
+}
+
+/* 2. Highlight the inner text and icon on hover */
+.site-navbar .site-menu .dropdown a:hover span,
+.site-navbar .site-menu .dropdown a:hover [class^="icon-"],
+.site-navbar .site-menu .dropdown a:hover [class*=" icon-"] {
+  /* Use the bright accent color for the icons on hover */
+  color: var(--accent) !important;
+}
+
+/* 3. Ensure the dropdown itself looks clean and transparent */
+.site-navbar .site-navigation .site-menu .has-children .dropdown {
+  /* Reduce padding/margin inside the wrapper if needed to accommodate item spacing */
+  padding: 4px 0;
+}
+
+/* =============================================================== */
+/* ====== DROP-DOWN MENU FIXES (ICON COLOR & LAVENDER GLOW) ====== */
+/* =============================================================== */
+
+/* 1. Ensure icons start in INK/Black and have correct sizing */
+.site-navbar .dropdown [class^="icon-"],
+.site-navbar .dropdown [class*=" icon-"] {
+  /* Resets icon color to soft ink/black by default */
+  color: var(--ink-70);
+}
+
+/* 2. Style for individual menu item links */
+.site-navbar .site-navigation .site-menu .has-children .dropdown>li>a {
+  /* Reset background and borders to prepare for hover effect */
+  transition: background 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  border-radius: 8px;
+  margin: 4px 8px;
+  padding: 10px 12px;
+  width: calc(100% - 16px);
+}
+
+/* 3. The Hover Effect: Lavender Glow */
+.site-navbar .site-menu .dropdown a:hover {
+  /* Soft light background for contrast */
+  background-color: rgba(184, 179, 233, 0.08);
+
+  /* Subtle glow using Primary Lavender color */
+  box-shadow: 0 0 10px rgba(184, 179, 233, 0.6),
+    0 0 20px rgba(184, 179, 233, 0.4);
+
+  /* Text color turns Primary Lavender on hover */
+  color: var(--primary);
+}
+
+/* 4. Highlight icons on hover in Primary Lavender color */
+.site-navbar .site-menu .dropdown a:hover span,
+.site-navbar .site-menu .dropdown a:hover [class^="icon-"],
+.site-navbar .site-menu .dropdown a:hover [class*=" icon-"] {
+  color: var(--primary) !important;
+}
+/* ======================================================= */
+/* ====== FINAL FIX: AGGRESSIVE NAVBAR GAP ELIMINATION ====== */
+/* ======================================================= */
+
+/* Target the first main content element (the slider/hero) and use a negative margin 
+equal to the navigation height (var(--nav-h)) to pull it up into the fixed header's space. 
+The .site-wrap padding ensures the content below the header doesn't get hidden. 
+*/
+.slide-item:first-child,
+.cover:first-child {
+  /* Pulls the element up by the exact height of the navbar (76px desktop/64px mobile) */
+  margin-top: calc(var(--nav-h) * -1) !important;
+
+  /* Pushes the content *inside* the slide-item down, preventing the fixed nav from covering it */
+  padding-top: var(--nav-h) !important;
+}
+
+/* Ensure body/HTML margins are absolutely zero */
+body,
+html {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
