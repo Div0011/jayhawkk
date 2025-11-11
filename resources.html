@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources & FAQs - Jayhawkk - Caring Hearts, Healing Hands</title>
+
+    <!-- Consistent Links -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- REMOVED css/faq.css because it conflicts with visibility/collapse -->
+
+    <style>
+        /* ========================================================= */
+        /* RESOURCES PAGE SPECIFIC STYLES (Adhering to style.css vars) */
+        /* ========================================================= */
+
+        .resource-hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 10em 0 5em 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .resource-hero:first-child {
+            margin-top: calc(var(--nav-h) * -1) !important;
+            padding-top: var(--nav-h) !important;
+        }
+
+        .resource-hero h1.heading {
+            font-size: 3rem;
+            color: var(--ink);
+        }
+
+        .resource-hero p.lead {
+            color: var(--ink-70);
+            font-size: 1.1rem;
+        }
+
+        /* Resource Tiles (replaces sidebar) */
+        .resource-tiles .resource-tile {
+            display: block;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .resource-tiles .glow-card {
+            padding: 22px 20px;
+            border-radius: 18px;
+            height: 100%;
+            transition: transform .2s ease, box-shadow .2s ease;
+            background: var(--surface-light);
+        }
+
+        .resource-tiles .glow-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--fog-shadow-strong);
+            text-decoration: none;
+        }
+
+        .resource-tiles .icon-wrap {
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .resource-tiles .tile-title {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        /* Main Content Card Styling */
+        .content-card-section {
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 30px;
+            background: var(--surface-light);
+            box-shadow: var(--fog-shadow-strong);
+            position: relative;
+            display: none;
+            /* Hidden by default (tile-controlled) */
+        }
+
+        .content-card-section.active {
+            display: block;
+        }
+
+        .content-card-section h3 {
+            color: var(--ink);
+            font-family: "Playfair Display", serif;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-card-section h3 .resource-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+
+        .content-card-section h5 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Privacy Link Card */
+        .privacy-link-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--ink);
+            border-radius: 18px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(184, 179, 233, 0.5);
+            display: none;
+            /* Hidden until its tile is clicked */
+        }
+
+        .privacy-link-card.active {
+            display: block;
+        }
+
+        /* Anchor offset fix for sticky nav */
+        .section-anchor {
+            padding-top: calc(var(--nav-h) + 15px);
+            margin-top: calc(var(--nav-h) * -1 - 15px);
+            position: relative !important;
+        }
+
+        /* Accordion (match wellness/residential look) */
+                    /* === FAQ SECTION (like wellness.html) === */
+            .accordion .card {
+            border: none;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            box-shadow: var(--fog-shadow);
+            background: #fff;
+            overflow: hidden;
+            }
+
+            .accordion .card-header {
+            background-color: var(--surface-light);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0;
+            }
+
+            .accordion .card-header button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 18px 20px;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--primary);
+            text-align: left;
+            background: none;
+            border: none;
+            transition: all 0.25s ease;
+            }
+
+            .accordion .card-header button:hover,
+            .accordion .card-header button:not(.collapsed) {
+            color: var(--primary);
+            background-color: rgba(123, 104, 238, 0.06);
+            }
+
+            .faq-icon-plus-minus {
+            font-size: 18px;
+            color: var(--primary);
+            margin-left: 10px;
+            transition: transform 0.25s ease, color 0.25s ease;
+            }
+
+            .accordion .card-header button[aria-expanded="true"] .faq-icon-plus-minus i {
+            transform: rotate(45deg);
+            color: var(--primary);
+            }
+
+
+        /* Footer Resources heading link: purple */
+        .site-footer h2.footer-heading a {
+            color: var(--primary) !important;
+            text-decoration: none;
+        }
+
+        .site-footer h2.footer-heading a:hover {
+            opacity: .85;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- QUICK CONTACT BUTTONS -->
+    <div class="quick-contact-buttons">
+        <a href="tel:+447442603440" class="qc-button" aria-label="Call us"><span class="icon-phone"></span></a>
+        <a href="mailto:shrishti@jayhawkk.co.uk" class="qc-button" aria-label="Email us"><span
+                class="icon-envelope"></span></a>
+        <a href="contact.html#contact-us" class="qc-button" aria-label="Find our location"><span
+                class="icon-map-marker"></span></a>
+    </div>
+
+    <div class="site-wrap">
+        <!-- Navigation (unchanged) -->
+        <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6 col-xl-2">
+                        <div class="mb-0 site-logo">
+                            <a href="index.html" class="mb-0" aria-label="Jayhawkk home">
+                                <img src="./images/logo/main-logo.png" alt="Jayhawkk" style="height:35px;" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                <li><a href="index.html" class="nav-link">Home</a></li>
+                                <li class="has-children">
+                                    <a href="services.html" class="nav-link">Our Services</a>
+                                    <ul class="dropdown">
+                                        <li><a href="residential-care.html" class="nav-link"><span
+                                                    class="icon-home"></span> Residential Care</a></li>
+                                        <li><a href="companionship.html" class="nav-link"><span
+                                                    class="icon-users"></span> Companionship & Support</a></li>
+                                        <li><a href="specialist-care.html" class="nav-link"><span
+                                                    class="icon-medkit"></span> Specialist Care</a></li>
+                                        <li><a href="wellness.html" class="nav-link"><span
+                                                    class="icon-heartbeat"></span> Wellness and Health</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="testimonial.html" class="nav-link">Testimonials</a></li>
+                                <li><a href="about.html" class="nav-link">About</a></li>
+                                <li><a href="career.html" class="nav-link">Career</a></li>
+                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                <li class="social"><a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="nav-link" aria-label="Facebook"><span
+                                            class="icon-facebook"></span></a></li>
+                                <li class="social"><a href="#" class="nav-link" aria-label="Twitter"><span
+                                            class="icon-twitter"></span></a></li>
+                                <li class="social"><a href="https://www.instagram.com/jayhawkk.ltd/" class="nav-link"
+                                        aria-label="Instagram"><span class="icon-instagram"></span></a></li>
+                                <li class="social"><a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366"
+                                        class="nav-link" aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
+                        <a href="#" class="site-menu-toggle js-menu-toggle float-right"><span
+                                class="icon-menu h3 text-black"></span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero -->
+            <!-- HERO SECTION with background image and overlay -->
+            <section class="resources-hero hero-section overlay" style="background-image: url('images/resources.jpg'); background-size: cover; background-position: center; position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+                <div class="container position-relative" style="z-index:2;">
+                    <h1 class="display-4 mb-4 heading" style="color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.25);">Resources</h1>
+                    <p class="lead mb-0" style="color: #e0f7fa; text-shadow: 0 1px 8px rgba(0,0,0,0.18);">Empowering you with knowledge and support</p>
+                </div>
+                <div class="hero-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(60,40,120,0.7) 0%,rgba(80,180,220,0.5) 100%);z-index:1;"></div>
+            </section>
+            <div class="site-wrap">
+        </div>
+
+        <!-- Main Content -->
+        <div class="site-section bg-light">
+            <div class="container">
+
+                <!-- Resource Tiles -->
+                <div class="row resource-tiles mb-4" id="tiles">
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#health-care" data-target="#health-care">
+                            <div class="glow-card">
+                                <div class="icon-wrap">🏥</div>
+                                <p class="tile-title">Health Care</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#elderly-care" data-target="#elderly-care">
+                            <div class="glow-card">
+                                <div class="icon-wrap">👵</div>
+                                <p class="tile-title">Elderly Care</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#person-centred-care" data-target="#person-centred-care">
+                            <div class="glow-card">
+                                <div class="icon-wrap">💖</div>
+                                <p class="tile-title">Person-Centred Care</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#quality-care" data-target="#quality-care">
+                            <div class="glow-card">
+                                <div class="icon-wrap">⭐</div>
+                                <p class="tile-title">Quality Care</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#workforce-excellence" data-target="#workforce-excellence">
+                            <div class="glow-card">
+                                <div class="icon-wrap">👥</div>
+                                <p class="tile-title">Workforce Excellence</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#safe-environments" data-target="#safe-environments">
+                            <div class="glow-card">
+                                <div class="icon-wrap">🏠</div>
+                                <p class="tile-title">Safe Environments</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#empowered-clients" data-target="#empowered-clients">
+                            <div class="glow-card">
+                                <div class="icon-wrap">💬</div>
+                                <p class="tile-title">Empowered Clients</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                        <a class="resource-tile" href="#faqs" data-target="#faqs">
+                            <div class="glow-card">
+                                <div class="icon-wrap">❓</div>
+                                <p class="tile-title">FAQs</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <a class="resource-tile" href="#privacy-terms" data-target="#privacy-terms">
+                            <div class="glow-card">
+                                <div class="icon-wrap">🔒</div>
+                                <p class="tile-title">Privacy & Terms</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Resource Content -->
+                <div class="row">
+                    <div class="col-lg-12 resource-content">
+                        <h2 class="mb-5 heading">📜 Our Commitment to Care Excellence</h2>
+
+                        <!-- Sections (hidden by default; tile-controlled) -->
+                        <div class="content-card-section glow-card section-anchor" id="health-care">
+                            <h3><span class="resource-icon">🏥</span> Health Care — Safe, Effective, and Compassionate
+                            </h3>
+                            <p>Every person we support deserves the highest standard of safety and clinical excellence.
+                                We strictly follow <strong>Regulation 12: Safe Care and Treatment</strong>, ensuring
+                                that all care is risk-assessed, evidence-based, and reviewed regularly.</p>
+                            <h5>Our Standards in Practice:</h5>
+                            <ul class="ul-check primary">
+                                <li>Comprehensive risk assessments completed before care begins and updated as needs
+                                    change.</li>
+                                <li>Medication support following MAR chart verification and double-checking protocols.
+                                </li>
+                                <li>Infection prevention audits carried out weekly to maintain hygiene in every home.
+                                </li>
+                                <li>Emergency plans in place for health deterioration, falls, or hospital admissions.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-card-section glow-card section-anchor" id="elderly-care">
+                            <h3><span class="resource-icon">👵</span> Elderly Care — Promoting Dignity, Respect, and
+                                Independence</h3>
+                            <p>We value every individual's right to be treated with dignity and respect in accordance
+                                with <strong>Regulation 10</strong>. Our carers are trained to communicate with empathy,
+                                respect personal space, and promote independence.</p>
+                            <h5>Our Approach:</h5>
+                            <ul class="ul-check primary">
+                                <li>Empowering older adults to make decisions about their own care and routines.</li>
+                                <li>Respecting privacy, modesty, and cultural or spiritual preferences.</li>
+                                <li>Encouraging mobility, hobbies, and positive daily interactions to maintain
+                                    confidence.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-card-section glow-card section-anchor" id="person-centred-care">
+                            <h3><span class="resource-icon">💖</span> Person-Centred Care — Tailored Support for Every
+                                Individual</h3>
+                            <p>We embrace <strong>Regulation 9: Person-Centred Care</strong>, ensuring every plan
+                                reflects what matters most to the person receiving care.</p>
+                            <h5>Our Standards in Practice:</h5>
+                            <ul class="ul-check primary">
+                                <li>Collaborative care planning with clients, families, and advocates.</li>
+                                <li>Regular reviews to adapt care to changing physical or emotional needs.</li>
+                                <li>Empowering choice — from meal preferences to scheduling and personal goals.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-card-section glow-card section-anchor" id="quality-care">
+                            <h3><span class="resource-icon">⭐</span> Quality Care — Governance, Audits, and Continuous
+                                Improvement</h3>
+                            <p>Jayhawkk Ltd aligns with <strong>Regulation 17: Good Governance</strong>, ensuring robust
+                                leadership, documentation, and accountability.</p>
+                            <h5>Our Systems:</h5>
+                            <ul class="ul-check primary">
+                                <li>Monthly internal audits of care logs, medication records, and incident reports.</li>
+                                <li>Client and family feedback surveys analysed for quality improvement.</li>
+                                <li>Staff supervision every 4–6 weeks and annual appraisals for performance growth.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-card-section glow-card section-anchor" id="workforce-excellence">
+                            <h3><span class="resource-icon">👥</span> Workforce Excellence — Skilled, Supported, and
+                                Valued Staff</h3>
+                            <p>In line with <strong>Regulation 18: Staffing</strong>, we ensure our team is
+                                well-trained, competent, and emotionally supported.</p>
+                            <h5>Our Standards in Practice:</h5>
+                            <ul class="ul-check primary">
+                                <li>Comprehensive induction, shadowing, and mandatory training (MCA, DoLS, infection
+                                    control, safeguarding).</li>
+                                <li>Continuous professional development with access to e-learning and NVQ Level 2–5
+                                    courses.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-card-section glow-card section-anchor" id="safe-environments">
+                            <h3><span class="resource-icon">🏠</span> Safe Environments — Comfort, Maintenance, and
+                                Compliance</h3>
+                            <p>Following <strong>Regulation 15: Premises and Equipment</strong>, we ensure every home
+                                environment we support is safe, clean, and adapted to individual needs.</p>
+                            <h5>Our Practices:</h5>
+                            <ul class="ul-check primary">
+                                <li>Equipment checks before and after every use (hoists, mobility aids, etc.).</li>
+                                <li>Infection control audits and environmental risk assessments.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-card-section glow-card section-anchor" id="empowered-clients">
+                            <h3><span class="resource-icon">💬</span> Empowered Clients, Connected Families</h3>
+                            <p>We view every care plan as a partnership. Families stay informed, clients stay empowered,
+                                and our team stays responsive.</p>
+                            <h5>Our Approach:</h5>
+                            <ul class="ul-check primary">
+                                <li>Secure <strong>Jayhawkk App</strong> for family communication and daily care notes.
+                                </li>
+                                <li>Regular family review meetings via video or home visits.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Privacy & Terms tile opens this -->
+                        
+                        <div class="site-section">
+                            <div class="container">
+                                <div class="privacy-link-card glow-card" id="privacy-terms">
+                                    <div class="col-lg-7 text-center">
+                                        <h2 class="heading mb-4">🔒 Privacy & Terms</h2>
+                                        <p class="lead mb-5">Learn about our commitment to protecting your data and our service standards</p>
+                                        <p>
+                                            <a href="PrivacyAndTerms.html" class="btn btn-primary">View Privacy and Terms</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Section (tile opens this) -->
+                        <div class="content-card-section glow-card section-anchor" id="faqs">
+                            <h2 class="mb-4 heading">❓ Frequently Asked Questions (FAQs) – Jayhawkk Ltd</h2>
+
+                            <div class="accordion" id="resourcesFaq">
+                                <!-- 1 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading1">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq1" aria-expanded="false"
+                                                aria-controls="resFaq1">
+                                                1. What services does Jayhawkk Ltd provide?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq1" class="collapse" aria-labelledby="resHeading1"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            Jayhawkk Ltd offers domiciliary personal care to individuals who wish to
+                                            remain independent in their own homes. Our care includes personal hygiene,
+                                            medication support, meal preparation, companionship, dementia care,
+                                            palliative and end-of-life care — all delivered with compassion, respect,
+                                            and professionalism.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading2">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq2" aria-expanded="false"
+                                                aria-controls="resFaq2">
+                                                2. Who regulates Jayhawkk Ltd?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq2" class="collapse" aria-labelledby="resHeading2"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            We are registered and regulated by the <strong>Care Quality Commission
+                                                (CQC)</strong> under the
+                                            Health and Social Care Act 2008. This means our care is regularly inspected
+                                            to ensure it meets the
+                                            Fundamental Standards of Quality and Safety, including dignity, consent, and
+                                            person-centred care.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 3 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading3">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq3" aria-expanded="false"
+                                                aria-controls="resFaq3">
+                                                3. How do you ensure your staff are trained and qualified?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq3" class="collapse" aria-labelledby="resHeading3"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            All our carers complete mandatory training before starting work, including:
+                                            <ul class="mt-2 ul-check primary">
+                                                <li>Moving and handling</li>
+                                                <li>Medication administration</li>
+                                                <li>Infection control</li>
+                                                <li>Safeguarding adults</li>
+                                                <li>Dementia and end-of-life care</li>
+                                            </ul>
+                                            They also receive continuous supervision, refresher courses, and spot checks
+                                            to ensure ongoing excellence.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 4 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading4">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq4" aria-expanded="false"
+                                                aria-controls="resFaq4">
+                                                4. What hours do you operate?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq4" class="collapse" aria-labelledby="resHeading4"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            We provide 24/7 care services, including weekends and bank holidays. Our
+                                            office hours are typically Monday to Friday, 9:00 AM – 5:00 PM, but an
+                                            on-call manager is available at all times for emergencies or urgent care
+                                            needs.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 5 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading5">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq5" aria-expanded="false"
+                                                aria-controls="resFaq5">
+                                                5. How do you create person-centred care plans?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq5" class="collapse" aria-labelledby="resHeading5"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            We design every care plan through a detailed assessment involving the
+                                            client,
+                                            their family, and healthcare professionals. Plans reflect individual needs,
+                                            routines, preferences, culture, spirituality, and dietary requirements,
+                                            ensuring every person feels respected and valued.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 6 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading6">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq6" aria-expanded="false"
+                                                aria-controls="resFaq6">
+                                                6. Can I choose my own carer?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq6" class="collapse" aria-labelledby="resHeading6"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            Yes, wherever possible. We believe continuity builds trust and comfort. You
+                                            can request specific carers, and we'll do our best to maintain consistent
+                                            staff who understand your personal preferences and routines.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 7 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading7">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq7" aria-expanded="false"
+                                                aria-controls="resFaq7">
+                                                7. How do you handle confidentiality and privacy?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq7" class="collapse" aria-labelledby="resHeading7"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            Your privacy is our top priority. All information is handled in accordance
+                                            with UK GDPR, Data Protection Act 2018, and our internal Confidentiality
+                                            Policy. We never share personal data without consent or a lawful reason.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 8 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading8">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq8" aria-expanded="false"
+                                                aria-controls="resFaq8">
+                                                8. How do you promote dignity and respect in care?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq8" class="collapse" aria-labelledby="resHeading8"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            We follow CQC Regulation 10: Dignity and Respect, ensuring all clients are
+                                            treated with kindness, compassion, and empathy. Our carers receive training
+                                            to support clients' independence, personal choices, and emotional
+                                            well-being.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 9 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading9">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq9" aria-expanded="false"
+                                                aria-controls="resFaq9">
+                                                9. What if I have a concern or complaint?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq9" class="collapse" aria-labelledby="resHeading9"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            We take all feedback seriously. You can raise a concern by:
+                                            <ul class="mt-2 ul-check primary">
+                                                <li>Speaking directly with your carer or care coordinator</li>
+                                                <li>Calling our office on 📞 07442 603440</li>
+                                                <li>Emailing info@jayhawkk.co.uk</li>
+                                            </ul>
+                                            We respond promptly and fairly, following our Complaints and Whistleblowing
+                                            Policy. If you're not satisfied, you can contact the CQC directly at
+                                            <a href="https://www.cqc.org.uk" target="_blank"
+                                                rel="noopener">www.cqc.org.uk</a>.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 10 -->
+                                <div class="card">
+                                    <div class="card-header" id="resHeading10">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#resFaq10" aria-expanded="false"
+                                                aria-controls="resFaq10">
+                                                10. How do you charge for services?
+                                                <span class="faq-icon-plus-minus float-right"><i
+                                                        class="fa-solid fa-plus"></i></span>
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="resFaq10" class="collapse" aria-labelledby="resHeading10"
+                                        data-parent="#resourcesFaq">
+                                        <div class="card-body">
+                                            Fees depend on your individual care package and the level of support
+                                            required. We provide a
+                                            transparent pricing structure, and all costs are discussed and agreed before
+                                            care begins — with no hidden fees.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /FAQ Section -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer (unchanged except purple Resources) -->
+        <footer class="site-footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2 class="footer-heading mb-4">About</h2>
+                        <p>We deliver bespoke, high-quality home care with professionalism, empathy, and unwavering
+                            commitment to dignity and independence.</p>
+                        <div class="my-5 social">
+                            <a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="pl-0 pr-3" aria-label="Facebook"><span
+                                    class="icon-facebook"></span></a>
+                            <a href="#" class="pl-3 pr-3" aria-label="Twitter"><span class="icon-twitter"></span></a>
+                            <a href="https://www.instagram.com/jayhawkk.ltd/" class="pl-3 pr-3" aria-label="Instagram"><span
+                                    class="icon-instagram"></span></a>
+                            <a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366" class="pl-3 pr-3" aria-label="LinkedIn"><span
+                                    class="icon-linkedin"></span></a>
+                        </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <h2 class="footer-heading mb-4">Quick Links</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="resources.html">Resources</a></li>
+                                        <li><a href="testimonial.html">Testimonials</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h2 class="footer-heading mb-4">Helpful Links</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="residential-care.html">Residential Care</a></li>
+                                        <li><a href="specialist-care.html">Specialist Care</a></li>
+                                        <li><a href="companionship.html">Companionship & Support</a></li>
+                                        <li><a href="wellness.html">Wellness and Health</a></li>
+                                        <li><a href="residential-care.html">Hospice care</a></li>
+                                        <li><a href="residential-care.html">Excellent Cuisine</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h2 class="footer-heading mb-4">Resources</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="resources.html#health-care">Health Care</a></li>
+                                        <li><a href="resources.html#person-centred-care">Person Centred Care</a></li>
+                                        <li><a href="resources.html#workforce-excellence">Workforce Excellence</a></li>
+                                        <li><a href="resources.html#safe-environments">Safe Environment</a></li>
+                                        <li><a href="resources.html#empowered-clients">Empowered Clients</a></li>
+                                        <li><a href="PrivacyAndTerms.html">Privacy & Terms</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <div class="border-top pt-5">
+                            <p class="copyright">
+                                <small>Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> Jayhawkk. All rights
+                                    reserved.
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ===== Smooth scroll =====
+        function smoothScrollTo(selector) {
+            var el = document.querySelector(selector);
+            if (!el) return;
+            var nav = document.querySelector('.site-navbar');
+            var offset = (nav ? nav.offsetHeight : 76) + 15;
+            var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+
+        // ===== Tile-controlled sections: open clicked, close others =====
+        (function () {
+            function closeAllSections() {
+                document.querySelectorAll('.content-card-section').forEach(function (c) { c.classList.remove('active'); });
+                document.querySelectorAll('.privacy-link-card').forEach(function (c) { c.classList.remove('active'); });
+            }
+            function openSection(selector) {
+                if (selector === '#privacy-terms') {
+                    var p = document.querySelector('#privacy-terms');
+                    if (p) p.classList.add('active');
+                } else {
+                    var s = document.querySelector(selector);
+                    if (s) s.classList.add('active');
+                }
+                smoothScrollTo(selector);
+            }
+
+            // Tile clicks
+            var tiles = document.getElementById('tiles');
+            if (tiles) {
+                tiles.addEventListener('click', function (e) {
+                    var a = e.target.closest('a.resource-tile');
+                    if (!a) return;
+                    e.preventDefault();
+                    var sel = a.dataset.target || a.getAttribute('href');
+                    closeAllSections();
+                    openSection(sel);
+                    if (history.pushState) history.pushState(null, '', sel);
+                });
+            }
+
+            // Footer quick jumps behave like tiles
+            document.querySelectorAll('.tile-jump').forEach(function (lnk) {
+                lnk.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var sel = lnk.dataset.target || lnk.getAttribute('href');
+                    closeAllSections();
+                    openSection(sel);
+                    if (history.pushState) history.pushState(null, '', sel);
+                });
+            });
+
+            // Open from hash on load
+            window.addEventListener('load', function () {
+                if (window.location.hash && document.querySelector(window.location.hash)) {
+                    closeAllSections();
+                    openSection(window.location.hash);
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

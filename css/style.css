@@ -92,11 +92,18 @@ h5,
 
 /* ---------- BUTTONS ---------- */
 .btn {
-  font-size: 13px;
-  text-transform: uppercase;
-  border-radius: 999px;
-  padding: 10px 26px;
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto !important;
 }
 
 .btn:focus,
@@ -106,15 +113,24 @@ h5,
 }
 
 .btn.btn-primary {
-  background: var(--primary);
-  border: 1px solid var(--primary);
+  background: linear-gradient(135deg, var(--primary), #9d8de4);
   color: #fff;
+  box-shadow: 0 8px 24px rgba(184, 179, 233, 0.3);
+  pointer-events: auto !important;
+  text-decoration: none;
 }
 
 .btn.btn-primary:hover {
-  background: var(--accent);
-  color: var(--ink);
-  border-color: var(--accent);
+  background: linear-gradient(135deg, #a3a0d9, #8d7fd4);
+  box-shadow: 0 12px 32px rgba(184, 179, 233, 0.4);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(184, 179, 233, 0.2);
 }
 
 .btn.btn-white {
@@ -2074,6 +2090,7 @@ a[data-mfp]:hover::before {
 .site-navbar .site-menu .dropdown a:hover [class*=" icon-"] {
   color: var(--primary) !important;
 }
+
 /* ======================================================= */
 /* ====== FINAL FIX: AGGRESSIVE NAVBAR GAP ELIMINATION ====== */
 /* ======================================================= */
@@ -2096,4 +2113,57 @@ body,
 html {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+/* ---------- GOLDEN GLOW BUTTON EFFECT ---------- */
+.btn.btn-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary), #9d8de4);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(184, 179, 233, 0.3);
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 12px 32px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  pointer-events: auto !important;
+}
+
+.btn.btn-hero::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 8px;
+  background: radial-gradient(60% 60% at 50% 35%, 
+    rgba(255, 215, 0, 0.25),
+    rgba(255, 200, 50, 0.15),
+    rgba(255, 165, 0, 0.08),
+    transparent 70%);
+  filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: -1;
+}
+
+.btn.btn-hero:hover {
+  background: linear-gradient(135deg, #a3a0d9, #8d7fd4);
+  box-shadow: 0 12px 32px rgba(255, 215, 0, 0.35);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn.btn-hero:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.btn.btn-hero:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
 }

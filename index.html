@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.oaistatic.com/assets/favicon-180x180-od45eci6.webp">
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -31,6 +31,84 @@
     content="Jayhawkk – trusted in-home care for seniors. Personalized support, professional staff, and compassionate services to help seniors live safely and comfortably at home.">
   <meta property="og:image" content="https://yourdomain.example/images/og-image.jpg">
   <meta name="theme-color" content="#ffffff">
+
+  <style>
+    /* Ensures the fixed nav offset is applied correctly ONLY to the hero video on the homepage */
+    .slide-item.video-hero:first-child {
+      /* Applies the fix from style.css */
+      margin-top: calc(var(--nav-h) * -1) !important;
+      padding-top: var(--nav-h) !important;
+    }
+
+    /* Styling for the Home page 'About' section for visual consistency */
+    .section-heading.glass {
+      background: var(--surface-strong);
+      /* Use strong surface for opaque card look */
+      border-radius: 18px;
+      box-shadow: var(--fog-shadow-strong);
+      padding: 30px;
+    }
+
+    .section-heading.glass h2 {
+      color: var(--ink);
+    }
+
+    .section-heading.glass p strong {
+      color: var(--primary);
+    }
+
+    /* Styling for the Resource Items in the new section */
+    .resources-section .resource-item {
+      padding: 25px;
+      text-align: center;
+      height: 100%;
+      /* Inherits the global .glow-card styling for the card appearance */
+      border-radius: 18px;
+      background: var(--surface-light);
+      box-shadow: var(--fog-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .resources-section .resource-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--fog-shadow-strong);
+    }
+
+    .resources-section .resource-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .resources-section .resource-item:hover .resource-icon {
+      color: var(--accent);
+    }
+
+    .resources-section .resource-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Ensures the pagination items use the icon style from style.css */
+    .feature-v1 .pagination-item .large-feature-icon {
+      /* Inherits custom background/color from style.css feature-v1 styles */
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: var(--fog-shadow);
+    }
+
+    .feature-v1 .pagination-item .large-feature-icon span {
+      font-size: 30px;
+      color: #fff;
+    }
+  </style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -105,14 +183,15 @@
                 <li><a href="career.html" class="nav-link">Career</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#" class="nav-link" aria-label="Facebook"><span
+                <li class="social"><a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="nav-link" aria-label="Facebook"><span
                       class="icon-facebook"></span></a></li>
                 <li class="social"><a href="#" class="nav-link" aria-label="Twitter"><span
                       class="icon-twitter"></span></a></li>
-                <li class="social"><a href="https://www.instagram.com/jayhawkkofficial" class="nav-link"
+                <li class="social"><a href="https://www.instagram.com/jayhawkk.ltd/" class="nav-link"
                     aria-label="Instagram"><span class="icon-instagram"></span></a></li>
                 <li class="social"><a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366" class="nav-link"
-                    aria-label="LinkedIn"><span class="icon-linkedin"></span></a></li>
+                    aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -120,8 +199,7 @@
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
             <a href="#" role="button" aria-label="Toggle navigation" aria-expanded="false"
               class="site-menu-toggle js-menu-toggle float-right">
-              <span class="icon-menu h3 text-white"></span>
-            </a>
+              <span class="icon-menu h3 text-black"></span> </a>
           </div>
         </div>
       </div>
@@ -136,11 +214,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3" style="color: var(--accent); text-shadow: 1px 1px 3px #000; font-weight: 700;">
+            <h1 class="heading mb-3" style="color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); font-weight: 700;">
               Home Is Where Care Begins</h1>
-            <p class="lead mb-5" style="color: var(--accent); text-shadow: 1px 1px 2px #000; font-weight: 600;">
+            <p class="lead mb-5" style="color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); font-weight: 600;">
               We bring expert elderly support into the place that matters most – Home.</p>
-            <p><a href="contact.html#contact-us" class="btn btn-primary">Get In Touch</a></p>
+            <p><a href="contact.html#contact-us" class="btn btn-primary btn-hero">Get In Touch</a></p>
           </div>
         </div>
       </div>
@@ -148,7 +226,7 @@
     <div class="feature-v1">
       <div class="d-lg-flex align-items-center w-100">
 
-        <div class="d-flex pagination-item glass h-100">
+        <div class="d-flex pagination-item glow-card h-100">
           <span class="icon-wrap large-feature-icon">
             <span class="icon-users"> </span>
           </span>
@@ -158,7 +236,7 @@
           </div>
         </div>
 
-        <div class="d-flex pagination-item glass h-100">
+        <div class="d-flex pagination-item glow-card h-100">
           <span class="icon-wrap large-feature-icon">
             <span class="icon-heartbeat"></span>
           </span>
@@ -168,9 +246,9 @@
           </div>
         </div>
 
-        <div class="d-flex pagination-item glass h-100">
+        <div class="d-flex pagination-item glow-card h-100">
           <span class="icon-wrap large-feature-icon">
-            <span class="icon-home"></span>
+            <span class="icon-medkit"></span>
           </span>
           <div>
             <span class="subheading">Try Our Services</span>
@@ -190,7 +268,7 @@
                   <span class="icon-home"></span>
                 </div>
                 <div class="service-inner">
-                  <h3>Residential Care</h3>
+                  <h3><a href="residential-care.html">Residential Care</a></h3>
                   <p>Comfortable, 24/7 care in a safe and supportive home-like setting.</p>
                 </div>
               </div>
@@ -203,7 +281,7 @@
                   <span class="icon-heartbeat"></span>
                 </div>
                 <div class="service-inner">
-                  <h3>Wellness and Health</h3>
+                  <h3><a href="wellness.html">Wellness and Health</a></h3>
                   <p>Promoting healthy living through personalized wellness and preventive care.</p>
                 </div>
               </div>
@@ -216,7 +294,7 @@
                   <span class="icon-users"></span>
                 </div>
                 <div class="service-inner">
-                  <h3>Companionship and Social Support</h3>
+                  <h3><a href="companionship.html">Companionship and Social Support</a></h3>
                   <p>Meaningful connections to reduce loneliness and enhance emotional well-being.</p>
                 </div>
               </div>
@@ -229,7 +307,7 @@
                   <span class="icon-medkit"></span>
                 </div>
                 <div class="service-inner">
-                  <h3>Specialist Care</h3>
+                  <h3><a href="specialist-care.html">Specialist Care</a></h3>
                   <p>Expert care tailored to complex medical and chronic health conditions.</p>
                 </div>
               </div>
@@ -273,35 +351,112 @@
     <div class="cover overlay" style="background-image: url('images/slider-2.jpg')">
       <div class="container">
         <div class="row ">
-          <div class="col-lg-7 mx-auto text-center align-self-center">
-            <h1 class="mb-5 heading">Our Goal is to Make Your Life Better</h1>
+          <div class="col-lg-10 mx-auto text-center align-self-center">
+            <h1 class="mb-5 heading" style="color: #fff;">Our Goal is to Make Your Life Better</h1>
             <div class="row">
-              <div class="col-lg-4">
-                <div class="feature">
-                  <span class="img-wrap">
-                    <img src="images/svg/svg/004-nurse.svg" alt="Nurse icon" class="img-fluid" loading="lazy">
-                  </span>
-                  <h3>Expert Nursing Staff</h3>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="feature">
-                  <span class="img-wrap">
-                    <img src="images/svg/svg/006-elderly-3.svg" alt="Support workers icon" class="img-fluid"
+              <div class="col-lg-3">
+                <div class="feature glow-card"> <span class="img-wrap">
+                    <img src="images/svg/svg/004-nurse.svg" alt="Compassionate home carers" class="img-fluid"
                       loading="lazy">
                   </span>
-                  <h3>Personal Support Workers</h3>
+                  <h3>Compassionate Home Carers</h3>
+                  <p class="mt-2">Dedicated professionals providing personalized care with empathy and
+                    understanding</p>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="feature">
-                  <span class="img-wrap">
-                    <img src="images/svg/svg/005-elderly-2.svg" alt="Therapists icon" class="img-fluid" loading="lazy">
+              <div class="col-lg-3">
+                <div class="feature glow-card"> <span class="img-wrap">
+                    <img src="images/svg/svg/006-elderly-3.svg" alt="Person centred companions" class="img-fluid"
+                      loading="lazy">
                   </span>
-                  <h3>Specialist Therapists</h3>
+                  <h3>Person Centred Companions</h3>
+                  <p class="mt-2">Building meaningful relationships focused on individual needs and
+                    preferences</p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="feature glow-card"> <span class="img-wrap">
+                    <img src="images/svg/svg/005-elderly-2.svg" alt="Wellbeing innovators" class="img-fluid"
+                      loading="lazy">
+                  </span>
+                  <h3>Wellbeing Innovators</h3>
+                  <p class="mt-2">We use creative approaches to enhance physical, mental and emotional
+                    wellness</p>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="feature glow-card"> <span class="img-wrap">
+                    <img src="images/svg/svg/team.png" alt="Empowered and happy team" class="img-fluid"
+                      loading="lazy">
+                  </span>
+                  <h3>Empowered & Happy Team</h3>
+                  <p class="mt-2">Our motivated staff delivers exceptional care with passion and dedication</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-section site-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-10 text-center">
+            <div class="heading">
+              <h2 class="text-black heading">Our Core Resources</h2>
+            </div>
+            <p class="lead">Building excellence in care through our foundational resources and values</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4">
+            <a href="resources.html#person-centred-care" class="text-decoration-none">
+              <div class="resource-item glow-card">
+                <div class="resource-icon">
+                  <span class="icon-clock-o"></span>
+                </div>
+                <h3 class="resource-title">Person Centred Care</h3>
+                <p class="resource-description">Tailoring our services to individual needs, preferences
+                  and life stories to ensure dignity and respect in every interaction.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <a href="resources.html#workforce-excellence" class="text-decoration-none">
+              <div class="resource-item glow-card">
+                <div class="resource-icon">
+                  <span class="icon-trophy"></span>
+                </div>
+                <h3 class="resource-title">Workforce Excellence</h3>
+                <p class="resource-description">Investing in continuous training and development to
+                  maintain the highest standards of professional care.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <a href="resources.html#safe-environments" class="text-decoration-none">
+              <div class="resource-item glow-card">
+                <div class="resource-icon">
+                  <span class="icon-shield"></span>
+                </div>
+                <h3 class="resource-title">Safe Environment</h3>
+                <p class="resource-description">Creating secure, comfortable spaces that promote
+                  independence while ensuring physical and emotional safety.</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4">
+            <a href="resources.html#empowered-clients" class="text-decoration-none">
+              <div class="resource-item glow-card">
+                <div class="resource-icon">
+                  <span class="icon-star"></span>
+                </div>
+                <h3 class="resource-title">Empowered Clients</h3>
+                <p class="resource-description">Supporting autonomy and choice, enabling clients to
+                  maintain control over their care and lifestyle decisions.</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -311,30 +466,33 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="testimonial text-center">
-              <img src="images/WomanAvatar5.webp" alt="Elizabeth Anderson" class="img-fluid" loading="lazy">
+            <div class="testimonial glow-card"> <img src="images/WomanAvatar5.webp" alt="Elizabeth Anderson"
+                class="img-fluid" loading="lazy">
               <blockquote>
-                <p class="quote">"Thanks to their caregivers, I feel safe and cared for in my own home. It's more than
+                <p class="quote">"Thanks to their caregivers, I feel safe and cared for in my own home.
+                  It's more than
                   just medical help—it's the kindness and attention that truly makes a difference."</p>
                 <cite class="author">Elizabeth Anderson, Senior</cite>
               </blockquote>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="testimonial text-center">
-              <img src="images/WomanAvatar4.webp" alt="Staff member" class="img-fluid" loading="lazy">
+            <div class="testimonial glow-card"> <img src="images/WomanAvatar4.webp" alt="Staff member" class="img-fluid"
+                loading="lazy">
               <blockquote class="quote-2">
-                <p class="quote">"The team is so compassionate and professional. I no longer worry about my health
+                <p class="quote">"The team is so compassionate and professional. I no longer worry about
+                  my health
                   routines because everything is managed with such care and dedication."</p>
                 <cite class="author">Rachel, Daughter of Senior</cite>
               </blockquote>
             </div>
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="testimonial text-center">
-              <img src="images/WomanAvatar3.webp" alt="Staff member" class="img-fluid" loading="lazy">
+            <div class="testimonial glow-card"> <img src="images/WomanAvatar3.webp" alt="Staff member" class="img-fluid"
+                loading="lazy">
               <blockquote class="quote-2">
-                <p class="quote">"They've brought peace of mind to me and my family. From check-ins to companionship,
+                <p class="quote">"They've brought peace of mind to me and my family. From check-ins to
+                  companionship,
                   their services have been a blessing in this phase of life."</p>
                 <cite class="author">Georgia, Daughter of Senior</cite>
               </blockquote>
@@ -346,20 +504,23 @@
 
     <div class="site-section">
       <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="images/Home_care_assistant.webp" alt="About Jayhawkk" class="img-fluid" loading="lazy">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="images/Home_care_assistant.webp" alt="Senior and Elder Home Care" class="img-fluid" loading="lazy">
           </div>
-          <div class="col-md-6 col-lg-6 ml-auto">
-            <div class="section-heading glass p-4 p-md-5">
+          <div class="col-lg-6">
+            <div class="section-heading glass p-4 p-md-5 glow-card">
               <h2 class="heading mb-3">Senior &amp; Elder Home Care</h2>
-              <p>Caring for seniors isn't just our profession—it's our promise. We provide compassionate, reliable care
+              <p>Caring for seniors isn't just our profession—it's our promise. We provide compassionate,
+                reliable care
                 that helps seniors live safely and comfortably in the homes they love.</p>
-              <p class="mb-4">Whether it's assistance with daily tasks, companionship, or managing health needs, our
-                dedicated team is here every step of the way. We create a nurturing environment where safety, respect,
+              <p class="mb-4">Whether it's assistance with daily tasks, companionship, or managing health
+                needs, our
+                dedicated team is here every step of the way. We create a nurturing environment where
+                safety, respect,
                 and emotional well-being come first.</p>
               <p class="mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
-              <p><a href="about.html" class="btn btn-primary">Learn More</a></p>
+              <a href="about.html" class="btn btn-primary" role="button">Learn More</a>
             </div>
           </div>
         </div>
@@ -371,54 +532,54 @@
         <div class="row mb-5 justify-content-center">
           <div class="col-7 text-center">
             <div class="heading">
-              <h2 class="text-black">News &amp; Updates</h2>
+              <h2 class="text-black heading">News &amp; Updates</h2>
             </div>
             <p>Caring for your loved ones with expert health services and the warmth of home.</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <div class="blog-entry">
-              <a href="#" class="d-block">
+            <div class="blog-entry glow-card"> <a href="#" class="d-block disabled-link">
                 <img src="images/News_2.webp" alt="Home Care That Heals the Heart" class="img-fluid" loading="lazy">
               </a>
-              <div class="post-meta d-flex justify-content-center glass">
+              <div class="post-meta d-flex justify-content-center">
                 <span><span class="icon-calendar"></span><span>23 Jul</span></span>
                 <span><span class="icon-user"></span><span>Admin</span></span>
                 <span><span class="icon-comment"></span><span>2 Comments</span></span>
               </div>
               <h2><a href="#" class="disabled-link">Home Care That Heals the Heart</a></h2>
-              <p>Our personalized in-home care plans ensure seniors receive the medical attention and emotional support
+              <p>Our personalized in-home care plans ensure seniors receive the medical attention and
+                emotional support
                 they need—all from the comfort of home.</p>
             </div>
           </div>
           <div class="col-md-4 col-lg-4">
-            <div class="blog-entry">
-              <a href="#" class="d-block">
+            <div class="blog-entry glow-card"> <a href="#" class="d-block disabled-link">
                 <img src="images/News_1.webp" alt="Building Wellness" class="img-fluid" loading="lazy">
               </a>
-              <div class="post-meta d-flex justify-content-center glass">
+              <div class="post-meta d-flex justify-content-center">
                 <span><span class="icon-calendar"></span><span>23 Jul</span></span>
                 <span><span class="icon-user"></span><span>Admin</span></span>
                 <span><span class="icon-comment"></span><span>2 Comments</span></span>
               </div>
               <h2><a href="#" class="disabled-link">Building Wellness, One Visit at a Time</a></h2>
-              <p>From routine health checks to companionship and daily living assistance, our caregivers are trained to
+              <p>From routine health checks to companionship and daily living assistance, our caregivers
+                are trained to
                 deliver respectful, evidence-based care tailored to each person's needs.</p>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="blog-entry">
-              <a href="#" class="d-block">
+            <div class="blog-entry glow-card"> <a href="#" class="d-block disabled-link">
                 <img src="images/News_3.webp" alt="Human Touch" class="img-fluid" loading="lazy">
               </a>
-              <div class="post-meta d-flex justify-content-center glass">
+              <div class="post-meta d-flex justify-content-center">
                 <span><span class="icon-calendar"></span><span>23 Jul</span></span>
                 <span><span class="icon-user"></span><span>Admin</span></span>
                 <span><span class="icon-comment"></span><span>2 Comments</span></span>
               </div>
               <h2><a href="#" class="disabled-link">Because Health Deserves a Human Touch</a></h2>
-              <p>We combine professional nursing support with genuine compassion, ensuring dignity, comfort, and safety
+              <p>We combine professional nursing support with genuine compassion, ensuring dignity, comfort,
+                and safety
                 for every client.</p>
             </div>
           </div>
@@ -431,46 +592,53 @@
         <div class="row">
           <div class="col-lg-4">
             <h2 class="footer-heading mb-4">About</h2>
-            <p>We deliver bespoke, high-quality home care with professionalism, empathy, and unwavering commitment to
-              dignity and independence.</p>
+            <p>We deliver bespoke, high-quality home care with professionalism, empathy, and unwavering
+              commitment to dignity and independence.</p>
             <div class="my-5 social">
-              <a href="#" class="pl-0 pr-3" aria-label="Facebook"><span class="icon-facebook"></span></a>
+              <a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="pl-0 pr-3" aria-label="Facebook"><span
+                  class="icon-facebook"></span></a>
               <a href="#" class="pl-3 pr-3" aria-label="Twitter"><span class="icon-twitter"></span></a>
-              <a href="https://www.instagram.com/jayhawkkofficial" class="pl-3 pr-3" aria-label="Instagram"><span
+              <a href="https://www.instagram.com/jayhawkk.ltd/" class="pl-3 pr-3" aria-label="Instagram"><span
                   class="icon-instagram"></span></a>
-              <a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366" class="pl-3 pr-3"
-                aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+              <a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366" class="pl-3 pr-3" aria-label="LinkedIn"><span
+                  class="icon-linkedin"></span></a>
             </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Amazing Atmosphere</a></li>
-                  <li><a href="#">Caring Staff</a></li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Helpful Link</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Hospice Care</a></li>
-                  <li><a href="#">Excellent Cuisine</a></li>
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Terms</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Resources</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Health Care</a></li>
-                  <li><a href="#">Elderly Care</a></li>
-                  <li><a href="#">Care with Love</a></li>
-                  <li><a href="#">Quality Care</a></li>
-                </ul>
+            </div>
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col-lg-4">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="testimonial.html">Testimonials</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-4">
+                  <h2 class="footer-heading mb-4">Helpful Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="residential-care.html">Residential Care</a></li>
+                    <li><a href="specialist-care.html">Specialist Care</a></li>
+                    <li><a href="companionship.html">Companionship & Support</a></li>
+                    <li><a href="wellness.html">Wellness and Health</a></li>
+                    <li><a href="residential-care.html">Hospice care</a></li>
+                    <li><a href="residential-care.html">Excellent Cuisine</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-4">
+                  <h2 class="footer-heading mb-4">Resources</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="resources.html#health-care">Health Care</a></li>
+                    <li><a href="resources.html#person-centred-care">Person Centred Care</a></li>
+                    <li><a href="resources.html#workforce-excellence">Workforce Excellence</a></li>
+                    <li><a href="resources.html#safe-environments">Safe Environment</a></li>
+                    <li><a href="resources.html#empowered-clients">Empowered Clients</a></li>
+                    <li><a href="PrivacyAndTerms.html">Privacy & Terms</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -481,7 +649,8 @@
             <div class="border-top pt-5">
               <p class="copyright">
                 <small>Copyright &copy;
-                  <script>document.write(new Date().getFullYear());</script> Jayhawkk. All rights reserved.
+                  <script>document.write(new Date().getFullYear());</script> Jayhawkk. All rights
+                  reserved.
                 </small>
               </p>
             </div>

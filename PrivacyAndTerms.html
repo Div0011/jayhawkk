@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy & Terms - Jayhawkk - Caring Hearts, Healing Hands</title>
+
+    <!-- Consistent assets (match wellness.html) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ========================================================= */
+        /* PRIVACY & TERMS PAGE — wellness-style header/hero/footer  */
+        /* ========================================================= */
+
+        /* HERO */
+        .privacy-hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 10em 0 5em 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .privacy-hero:first-child {
+            margin-top: calc(var(--nav-h) * -1) !important;
+            padding-top: var(--nav-h) !important;
+        }
+
+        .privacy-hero h1 {
+            color: var(--ink);
+            font-size: 3rem;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+        }
+
+        .privacy-hero p.lead {
+            color: var(--ink-70);
+            font-size: 1.1rem;
+        }
+
+        /* CONTENT (glow card look) */
+        .content-section {
+            background: var(--surface-light);
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 22px rgba(17, 24, 39, .08);
+        }
+
+        /* COLOR HIERARCHY */
+        .content-section h2,
+        .content-section h3 {
+            color: var(--primary);
+            font-family: "Playfair Display", serif;
+            font-weight: 800;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        .content-section h4,
+        .content-section h5,
+        .content-section .h5,
+        .content-section .h6 {
+            color: var(--secondary);
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .content-section p {
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .content-section strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* DIVIDER + SPECIAL BOXES */
+        .section-divider {
+            border-top: 2px solid var(--primary);
+            margin: 40px 0;
+            opacity: .2;
+        }
+
+        .trust-statement {
+            background: rgba(255, 232, 163, .25);
+            border-left: 5px solid var(--accent);
+            border-radius: 14px;
+            padding: 28px;
+            margin: 40px 0;
+            box-shadow: 0 4px 12px rgba(255, 232, 163, .35);
+        }
+
+        .trust-statement h5 {
+            color: var(--primary);
+            font-weight: 700;
+            font-family: "Playfair Display", serif;
+        }
+
+        .trust-statement p {
+            color: var(--ink);
+            margin-bottom: 0;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--ink);
+            border-radius: 14px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 4px 12px rgba(184, 179, 233, .4);
+        }
+
+        .contact-card h5 {
+            color: var(--ink);
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+        }
+
+        .contact-card p,
+        .contact-card address {
+            color: var(--ink-70);
+            font-size: .95rem;
+        }
+
+        .contact-card address strong {
+            color: var(--ink);
+        }
+
+        /* LISTS + LINKS */
+        .content-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .content-section ul li {
+            position: relative;
+            margin-bottom: 8px;
+            color: var(--ink-70);
+            line-height: 1.6;
+        }
+
+        .content-section ul li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .content-section a {
+            color: var(--primary);
+            text-decoration: underline;
+            transition: color .2s ease;
+        }
+
+        .content-section a:hover {
+            color: var(--accent);
+        }
+        /* === SUBHEADING COLOR FIX: Privacy Page Only === */
+        .content-section h5,
+        .content-section .h6,
+        .content-section h4 {
+        color: #B38B00 !important; /* deep golden */
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Quick contact (same as wellness) -->
+    <div class="quick-contact-buttons">
+        <a href="tel:+447442603440" class="qc-button" aria-label="Call us"><span class="icon-phone"></span></a>
+        <a href="mailto:shrishti@jayhawkk.co.uk" class="qc-button" aria-label="Email us"><span
+                class="icon-envelope"></span></a>
+        <a href="contact.html#contact-us" class="qc-button" aria-label="Find our location"><span
+                class="icon-map-marker"></span></a>
+    </div>
+
+    <!-- Header (exact wellness structure; no top-level Resources link) -->
+    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-6 col-xl-2">
+                    <div class="mb-0 site-logo">
+                        <a href="index.html" class="mb-0" aria-label="Jayhawkk home">
+                            <img src="./images/logo/main-logo.png" alt="Jayhawkk" style="height:35px;">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li><a href="index.html" class="nav-link">Home</a></li>
+                            <li class="has-children">
+                                <a href="services.html" class="nav-link">Our Services</a>
+                                <ul class="dropdown">
+                                    <li><a href="residential-care.html"><span class="icon-home"></span><span>Residential
+                                                Care</span></a></li>
+                                    <li><a href="companionship.html"><span class="icon-users"></span><span>Companionship
+                                                & Support</span></a></li>
+                                    <li><a href="specialist-care.html"><span class="icon-medkit"></span><span>Specialist
+                                                Care</span></a></li>
+                                    <li><a href="wellness.html"><span class="icon-heartbeat"></span><span>Wellness and
+                                                Health</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="testimonial.html" class="nav-link">Testimonials</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="career.html" class="nav-link">Career</a></li>
+                            <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            <li class="social"><a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="nav-link" aria-label="Facebook"><span
+                                        class="icon-facebook"></span></a></li>
+                            <li class="social"><a href="#" class="nav-link" aria-label="Twitter"><span
+                                        class="icon-twitter"></span></a></li>
+                            <li class="social"><a href="https://www.instagram.com/jayhawkk.ltd/" class="nav-link"
+                                    aria-label="Instagram"><span class="icon-instagram"></span></a></li>
+                            <li class="social"><a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366"
+                                    class="nav-link" aria-label="LinkedIn"><span class="icon-linkedin"></span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle float-right"><span
+                            class="icon-menu h3 text-black"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-wrap">
+        <!-- HERO -->
+        <!-- HERO SECTION with background image and overlay -->
+        <section class="privacy-hero hero-section overlay" style="background-image: url('images/privacyterms.jpg'); background-size: cover; background-position: center; position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+            <div class="container position-relative" style="z-index:2;">
+                <h1 class="display-4 mb-4 heading" style="color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.25);">Privacy Policy & Terms of Service</h1>
+                <p class="lead mb-0" style="color: #e0f7fa; text-shadow: 0 1px 8px rgba(0,0,0,0.18);">Your privacy and rights are important to us</p>
+            </div>
+            <div class="hero-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(60,40,120,0.7) 0%,rgba(80,180,220,0.5) 100%);z-index:1;"></div>
+        </section>
+
+        <!-- CONTENT -->
+        <div class="site-section bg-light">
+            <div class="container">
+                <div class="content-section glow-card">
+                    <h2 class="mb-4 heading">🔒 Privacy Policy</h2>
+
+                    <h5 class="h6">Our Commitment to Your Privacy</h5>
+                    <p>At Jayhawkk Ltd, we are committed to protecting the privacy and dignity of every individual we
+                        support, work with, and employ. We follow the principles of the UK General Data Protection
+                        Regulation (GDPR), the Data Protection Act 2018, and the Care Quality Commission (CQC) standards
+                        on confidentiality and information governance.</p>
+                    <p>We collect, store, and use information only for legitimate purposes related to delivering safe,
+                        high-quality personal care in people's homes.</p>
+
+                    <h5 class="h6">What Information We Collect</h5>
+                    <p>We may collect and process the following types of personal information:</p>
+                    <ul>
+                        <li><strong>Service Users:</strong> Name, address, date of birth, contact details, health and
+                            care needs, risk assessments, medication information, next of kin, GP details, and emergency
+                            contacts.</li>
+                        <li><strong>Staff Members:</strong> Name, address, contact details, DBS status, training
+                            records, employment history, qualifications, references, and right-to-work documents.</li>
+                        <li><strong>Website Users:</strong> Contact information shared through enquiry forms, cookies,
+                            and website analytics to improve user experience.</li>
+                    </ul>
+                    <p>We only collect the information we truly need to provide safe, effective, compassionate, and
+                        high-quality care.</p>
+
+                    <h5 class="h6">How We Use Your Information</h5>
+                    <p>Your information is used to:</p>
+                    <ul>
+                        <li>Deliver personalised care and support services.</li>
+                        <li>Communicate with you, your family, or representatives.</li>
+                        <li>Maintain accurate records as required by CQC and the law.</li>
+                        <li>Manage our staff safely and effectively.</li>
+                        <li>Monitor service quality and improve care standards.</li>
+                        <li>Respond to feedback, compliments, and complaints.</li>
+                        <li>Fulfil legal, regulatory, and contractual obligations.</li>
+                    </ul>
+                    <p>We never sell or trade your personal data to any third party.</p>
+
+                    <h5 class="h6">Legal Basis for Processing</h5>
+                    <p>We process personal data under the following lawful bases:</p>
+                    <ul>
+                        <li>Consent (where you have agreed to our use of data).</li>
+                        <li>Contract (to deliver a care service or employment relationship).</li>
+                        <li>Legal obligation (to comply with laws and CQC requirements).</li>
+                        <li>Vital interests (to protect life in an emergency).</li>
+                        <li>Legitimate interests (for quality monitoring and improvement).</li>
+                    </ul>
+
+                    <h5 class="h6">How We Protect Your Data</h5>
+                    <p>We implement strict administrative, technical, and physical safeguards:</p>
+                    <ul>
+                        <li>Encrypted electronic systems and secure paper storage.</li>
+                        <li>Access restricted to authorised staff only.</li>
+                        <li>Regular staff training in information governance and confidentiality.</li>
+                        <li>Immediate reporting and investigation of data breaches.</li>
+                        <li>Secure disposal of records following data retention schedules.</li>
+                    </ul>
+                    <p>All staff sign confidentiality agreements and follow Jayhawkk Ltd's Confidentiality, Data
+                        Protection, and Information Governance policies.</p>
+
+                    <h5 class="h6">Sharing of Information</h5>
+                    <p>We may share your information with:</p>
+                    <ul>
+                        <li>NHS professionals (GPs, district nurses, hospitals).</li>
+                        <li>Local authorities and social services (for care coordination).</li>
+                        <li>Regulators such as the Care Quality Commission (CQC).</li>
+                        <li>Emergency services, when required.</li>
+                        <li>Payroll or HR systems for staff administration.</li>
+                    </ul>
+                    <p>All sharing is done securely and only where necessary to deliver safe, coordinated care or to
+                        comply with legal duties.</p>
+
+                    <h5 class="h6">Your Rights</h5>
+                    <p>Under UK GDPR, you have the right to:</p>
+                    <ul>
+                        <li>Access your personal data.</li>
+                        <li>Request correction of inaccurate data.</li>
+                        <li>Request erasure (where legally appropriate).</li>
+                        <li>Restrict or object to processing.</li>
+                        <li>Request a copy of your data in a portable format.</li>
+                        <li>Withdraw consent at any time (where consent is the basis for processing).</li>
+                    </ul>
+                    <p>To exercise your rights, please email info@jayhawkk.co.uk.</p>
+                    <p>If you are not satisfied with our response, you have the right to contact the Information
+                        Commissioner's Office (ICO) at <a href="https://www.ico.org.uk"
+                            target="_blank">www.ico.org.uk</a>.</p>
+
+                    <h5 class="h6">How Long We Keep Your Data</h5>
+                    <p>We retain records in line with:</p>
+                    <ul>
+                        <li>CQC Regulations (Health and Social Care Act 2008).</li>
+                        <li>Local authority and NHS retention standards.</li>
+                        <li>Our Record Management Policy.</li>
+                    </ul>
+                    <p>Typically:</p>
+                    <ul>
+                        <li>Service user records: 8 years after care ends.</li>
+                        <li>Employee records: 6 years after employment ends.</li>
+                        <li>Financial records: 7 years (for audit compliance).</li>
+                    </ul>
+
+                    <h5 class="h6">Cookies and Website Analytics</h5>
+                    <p>Our website uses cookies to enhance user experience and analyse site performance. You can control
+                        cookie preferences through your browser settings. No personal information is stored in cookies
+                        without consent.</p>
+
+                    <h5 class="h6">Updates to This Policy</h5>
+                    <p>We review and update our privacy policy annually or whenever there are regulatory changes. The
+                        most recent version will always be available on our website.</p>
+
+                    <div class="trust-statement">
+                        <h5 class="h6">💠 Statement of Trust</h5>
+                        <p class="mb-0">At Jayhawkk Ltd, we believe privacy is part of care. Protecting information is
+                            protecting people — it's our duty, our promise, and our culture.</p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <h2 class="mb-4 heading">⚖️ Terms of Service</h2>
+
+                    <h5 class="h6">Introduction</h5>
+                    <p>Welcome to Jayhawkk Ltd, a domiciliary personal care provider regulated by the Care Quality
+                        Commission (CQC). By accessing our website or using our services, you agree to comply with these
+                        terms. Please read them carefully.</p>
+
+                    <h5 class="h6">Who We Are</h5>
+                    <p>Jayhawkk Ltd provides regulated personal care services to individuals in their homes. We are
+                        dedicated to promoting dignity, respect, independence, and well-being in every aspect of our
+                        work.</p>
+
+                    <h5 class="h6">Use of Our Website</h5>
+                    <p>By using our website, you agree that:</p>
+                    <ul>
+                        <li>You will use it only for lawful purposes.</li>
+                        <li>You will not copy, reproduce, or misuse any content without permission.</li>
+                        <li>You will not attempt to hack, damage, or misuse our systems.</li>
+                    </ul>
+                    <p>We make every effort to keep the website secure, accessible, and up to date, but we cannot
+                        guarantee uninterrupted service or that it will be free from viruses or technical issues.</p>
+
+                    <h5 class="h6">Service Standards</h5>
+                    <p>Jayhawkk Ltd delivers services in line with the Health and Social Care Act 2008 (Regulated
+                        Activities) Regulations 2014 and CQC Fundamental Standards, including:</p>
+                    <ul>
+                        <li>Person-centred care</li>
+                        <li>Dignity and respect</li>
+                        <li>Consent</li>
+                        <li>Safety and safeguarding</li>
+                        <li>Good governance</li>
+                        <li>Staffing competence and fitness</li>
+                        <li>Complaints handling and transparency</li>
+                    </ul>
+
+                    <h5 class="h6">Intellectual Property</h5>
+                    <p>All text, images, icons, and graphics on this website are original or licensed for free
+                        commercial use. You may share our content for awareness or educational purposes with clear
+                        credit to Jayhawkk Ltd and without modification.</p>
+
+                    <h5 class="h6">Liability Disclaimer</h5>
+                    <p>While we strive to ensure that all information is accurate and current, Jayhawkk Ltd accepts no
+                        responsibility for loss or damage resulting from reliance on information provided through the
+                        website. For personal care decisions, always consult a qualified professional.</p>
+
+                    <h5 class="h6">External Links</h5>
+                    <p>Our website may contain links to other websites for reference or support. We are not responsible
+                        for the content or privacy practices of these third-party sites.</p>
+
+                    <h5 class="h6">Governing Law</h5>
+                    <p>These terms are governed by the laws of England and Wales. Any disputes shall be resolved through
+                        amicable dialogue, and if necessary, through legal proceedings in the jurisdiction of England
+                        and Wales.</p>
+
+                    <div class="contact-card">
+                        <h5 class="h6">Contact Us</h5>
+                        <p class="mb-3">If you have any questions about our Privacy Policy or Terms of Service, please
+                            contact:</p>
+                        <address class="mb-0">
+                            <strong>Jayhawkk Ltd</strong><br>
+                            📍 Regus Office, 9 Little Park Street, Coventry, CV1 2UR<br>
+                            📧 info@jayhawkk.co.uk<br>
+                            🌐 www.jayhawkk.co.uk<br>
+                            📞 07442 603440
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer (wellness-style) -->
+        <footer class="site-footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2 class="footer-heading mb-4">About</h2>
+                        <p>We deliver bespoke, high-quality home care with professionalism, empathy, and unwavering
+                            commitment to dignity and independence.</p>
+                        <div class="my-5 social">
+                            <a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="pl-0 pr-3" aria-label="Facebook"><span
+                                    class="icon-facebook"></span></a>
+                            <a href="#" class="pl-3 pr-3" aria-label="Twitter"><span class="icon-twitter"></span></a>
+                            <a href="https://www.instagram.com/jayhawkk.ltd/" class="pl-3 pr-3" aria-label="Instagram"><span
+                                    class="icon-instagram"></span></a>
+                            <a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366" class="pl-3 pr-3" aria-label="LinkedIn"><span
+                                    class="icon-linkedin"></span></a>
+                        </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <h2 class="footer-heading mb-4">Quick Links</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="resources.html">Resources</a></li>
+                                        <li><a href="testimonial.html">Testimonials</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h2 class="footer-heading mb-4">Helpful Links</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="residential-care.html">Residential Care</a></li>
+                                        <li><a href="specialist-care.html">Specialist Care</a></li>
+                                        <li><a href="companionship.html">Companionship & Support</a></li>
+                                        <li><a href="wellness.html">Wellness and Health</a></li>
+                                        <li><a href="residential-care.html">Hospice care</a></li>
+                                        <li><a href="residential-care.html">Excellent Cuisine</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h2 class="footer-heading mb-4">Resources</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="resources.html#health-care">Health Care</a></li>
+                                        <li><a href="resources.html#person-centred-care">Person Centred Care</a></li>
+                                        <li><a href="resources.html#workforce-excellence">Workforce Excellence</a></li>
+                                        <li><a href="resources.html#safe-environments">Safe Environment</a></li>
+                                        <li><a href="resources.html#empowered-clients">Empowered Clients</a></li>
+                                        <li><a href="PrivacyAndTerms.html">Privacy & Terms</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <div class="border-top pt-5">
+                            <p class="copyright">
+                                <small>Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> Jayhawkk. All rights
+                                    reserved.
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts (match wellness.html order) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
