@@ -165,47 +165,76 @@
         .accordion .card {
             border: none !important;
         }
+
         /* ---- Wellness cards interactivity (residential look/feel) ---- */
         .wellness-feature {
-        transition: transform .25s ease, box-shadow .25s ease;
+            transition: transform .25s ease, box-shadow .25s ease;
         }
+
         .wellness-feature:focus,
         .wellness-feature:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(17,24,39,.14);
-        outline: none;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(17, 24, 39, .14);
+            outline: none;
         }
+
         /* keyboard focus visible */
         .wellness-feature:focus-visible {
-        outline: 3px solid var(--accent);
-        outline-offset: 2px;
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
         }
+
         /* FAQ base */
-        .faq-content { margin-top: 24px; }
+        .faq-content {
+            margin-top: 24px;
+        }
+
         .faq-item {
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: var(--fog-shadow);
-        overflow: hidden;
-        margin-bottom: 14px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: var(--fog-shadow);
+            overflow: hidden;
+            margin-bottom: 14px;
         }
+
         .faq-question {
-        display: flex; align-items: center; justify-content: space-between;
-        gap: 12px; padding: 18px 20px; cursor: pointer;
-        background: var(--surface-light);
-        transition: background .25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 20px;
+            cursor: pointer;
+            background: var(--surface-light);
+            transition: background .25s ease;
         }
-        .faq-question:hover { background: rgba(184,179,233,.10); }
-        .faq-question h3 { margin: 0; font-size: 1.05rem; color: var(--ink); }
-        .faq-icon i { font-size: 16px; color: var(--primary); transition: transform .25s ease; }
+
+        .faq-question:hover {
+            background: rgba(184, 179, 233, .10);
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.05rem;
+            color: var(--ink);
+        }
+
+        .faq-icon i {
+            font-size: 16px;
+            color: var(--primary);
+            transition: transform .25s ease;
+        }
 
         .faq-answer {
-        max-height: 0; overflow: hidden;
-        transition: max-height .3s ease;
-        background: #fff; padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+            background: #fff;
+            padding: 0 20px;
         }
-        .faq-item.active .faq-answer { padding: 0 20px 18px; }
 
+        .faq-item.active .faq-answer {
+            padding: 0 20px 18px;
+        }
     </style>
 </head>
 
@@ -253,14 +282,13 @@
                             <li><a href="about.html" class="nav-link">About</a></li>
                             <li><a href="career.html" class="nav-link">Career</a></li>
                             <li><a href="contact.html" class="nav-link">Contact</a></li>
-                            <li class="social"><a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="nav-link" aria-label="Facebook"><span
-                                        class="icon-facebook"></span></a></li>
-                            <li class="social"><a href="#" class="nav-link" aria-label="Twitter"><span
-                                        class="icon-twitter"></span></a></li>
-                            <li class="social"><a href="https://www.instagram.com/jayhawkk.ltd/" class="nav-link"
+                            <li class="social"><a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr"
+                                    class="nav-link" aria-label="Facebook"><span class="icon-facebook"></span></a></li>
+                            <li class="social"><a href="https://www.instagram.com/jayhawkk.ltd" class="nav-link"
                                     aria-label="Instagram"><span class="icon-instagram"></span></a></li>
-                            <li class="social"><a href="https://www.linkedin.com/in/jayhawkk-care-ltd-a43b29366"
-                                    class="nav-link" aria-label="LinkedIn"><span class="icon-linkedin"></span></a></li>
+                            <li class="social"><a href="https://www.linkedin.com/company/jayhawkk-ltd" class="nav-link"
+                                    aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -269,347 +297,369 @@
     </header>
 
     <!-- HERO SECTION with background image and overlay, styled like residential-care.html -->
-    <section class="wellness-hero hero-section overlay" style="background-image: url('images/wellness.jpg'); background-size: cover; background-position: center; position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+    <section class="wellness-hero hero-section overlay"
+        style="background-image: url('images/wellness.jpg'); background-size: cover; background-position: center; position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
         <div class="container position-relative" style="z-index:2;">
-            <h1 class="display-4 mb-4 heading" style="color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.25);">Wellness and Health</h1>
-            <p class="lead mb-0" style="color: #e0f7fa; text-shadow: 0 1px 8px rgba(0,0,0,0.18);">Nurturing Mind, Body, and Spirit for Complete Wellbeing</p>
+            <h1 class="display-4 mb-4 heading" style="color: #fff; text-shadow: 0 2px 16px rgba(0,0,0,0.25);">Wellness
+                and Health</h1>
+            <p class="lead mb-0" style="color: #e0f7fa; text-shadow: 0 1px 8px rgba(0,0,0,0.18);">Nurturing Mind, Body,
+                and Spirit for Complete Wellbeing</p>
         </div>
-        <div class="hero-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(60,40,120,0.7) 0%,rgba(80,180,220,0.5) 100%);z-index:1;"></div>
+        <div class="hero-overlay"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(60,40,120,0.7) 0%,rgba(80,180,220,0.5) 100%);z-index:1;">
+        </div>
     </section>
     <div class="site-wrap">
 
-            <div class="intro-section site-section">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <h2 class="mb-4 heading">Holistic Care for Complete Wellbeing</h2>
-                            <p>At Jayhawkk Ltd, we believe that true care goes beyond meeting daily needs — it's about
-                                nurturing the mind, body, and spirit. Our approach to wellness and health focuses on
-                                promoting independence, dignity, and emotional wellbeing for every individual we support.
-                            </p>
-                            <p>We take time to understand each person's unique health goals, lifestyle, and preferences.
-                                Whether it's supporting with medication, encouraging gentle exercise, preparing nutritious
-                                meals, or offering companionship, our team ensures that every aspect of wellbeing is looked
-                                after.</p>
-                            <p>Our carers are trained to recognise changes in health conditions and work closely with
-                                families, GPs, and other healthcare professionals to ensure consistent and safe care.
-                                Through this collaborative approach, we aim to maintain not only physical health but also
-                                mental and emotional balance — helping our clients live comfortably, confidently, and
-                                happily in their own homes.</p>
-                            <p class="lead"><strong>At Jayhawkk Ltd, wellness is not just about care — it's about
-                                    quality of life.</strong></p>
-                        </div>
-                        <div class="col-lg-6">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Wellness and Health" class="img-fluid rounded">
-                        </div>
+        <div class="intro-section site-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4 heading">Holistic Care for Complete Wellbeing</h2>
+                        <p>At Jayhawkk Ltd, we believe that true care goes beyond meeting daily needs — it's about
+                            nurturing the mind, body, and spirit. Our approach to wellness and health focuses on
+                            promoting independence, dignity, and emotional wellbeing for every individual we support.
+                        </p>
+                        <p>We take time to understand each person's unique health goals, lifestyle, and preferences.
+                            Whether it's supporting with medication, encouraging gentle exercise, preparing nutritious
+                            meals, or offering companionship, our team ensures that every aspect of wellbeing is looked
+                            after.</p>
+                        <p>Our carers are trained to recognise changes in health conditions and work closely with
+                            families, GPs, and other healthcare professionals to ensure consistent and safe care.
+                            Through this collaborative approach, we aim to maintain not only physical health but also
+                            mental and emotional balance — helping our clients live comfortably, confidently, and
+                            happily in their own homes.</p>
+                        <p class="lead"><strong>At Jayhawkk Ltd, wellness is not just about care — it's about
+                                quality of life.</strong></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Wellness and Health" class="img-fluid rounded">
                     </div>
                 </div>
             </div>
-
-            <div class="site-section">
-                <div class="container">
-                    <div class="row mb-5">
-                        <div class="col-lg-12 text-center">
-                            <h2 class="mb-3 heading">Our Wellness Approach</h2>
-                            <p class="lead">Comprehensive care that addresses all aspects of wellbeing</p>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🧘‍♀️</div>
-                                <h3>Emotional Wellbeing</h3>
-                                <p>We believe that emotional health is as important as physical care. Our team offers
-                                    companionship, meaningful conversation, and emotional support to help clients feel
-                                    valued, understood, and connected.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🥗</div>
-                                <h3>Nutrition & Hydration</h3>
-                                <p>Good nutrition is key to staying strong and healthy. We prepare balanced meals and
-                                    encourage regular hydration to promote vitality, energy, and overall wellness.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🚶‍♂️</div>
-                                <h3>Physical Activity & Exercise</h3>
-                                <p>We support gentle exercise and movement routines designed around each person's abilities
-                                    — helping to improve mobility, balance, and confidence in daily life.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">💊</div>
-                                <h3>Health Monitoring</h3>
-                                <p>Our trained carers keep a close eye on each client's general health, medication routines,
-                                    and wellbeing. We work in partnership with families, GPs, and healthcare professionals
-                                    to ensure consistent, safe support.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🧠</div>
-                                <h3>Cognitive Support</h3>
-                                <p>We provide engaging mental stimulation through memory games, reading, music, and
-                                    conversation to keep the mind active and promote cognitive wellbeing.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🌿</div>
-                                <h3>Holistic Care</h3>
-                                <p>Our approach blends physical, emotional, and social care to create a sense of balance and
-                                    fulfilment — supporting overall health and happiness.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🤝</div>
-                                <h3>Social Engagement</h3>
-                                <p>We encourage participation in hobbies, family time, and community activities to reduce
-                                    loneliness, build confidence, and maintain a positive outlook.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="wellness-feature glow-card" tabindex="0">
-                                <div class="wellness-icon">🕊️</div>
-                                <h3>Peace of Mind</h3>
-                                <p>We aim to create a calm, safe, and nurturing environment where every person feels secure,
-                                    respected, and at ease.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-container site-section">
-                <div class="container">
-                    <div class="faq-header bg-primary glass">
-                        <h1>Frequently Asked Questions</h1>
-                        <p>Find answers to common questions about our Wellness and Health services</p>
-                    </div>
-            
-                    <div class="faq-content">
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>What does Jayhawkk's Wellness and Health support include?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Our Wellness and Health support focuses on the complete wellbeing of each person — physically,
-                                    emotionally, and socially. This includes nutrition and hydration, gentle exercise, emotional
-                                    companionship, mental stimulation, and regular health monitoring.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Who can benefit from Jayhawkk's Wellness and Health services?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Our services are designed for individuals of all ages who may need support to maintain a healthy
-                                    and independent lifestyle at home — including older adults, people living with disabilities, or
-                                    anyone recovering from illness or hospital stays.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>How does Jayhawkk promote emotional wellbeing?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>We understand the importance of emotional balance. Our carers offer companionship, active
-                                    listening, and uplifting daily interactions to help reduce loneliness, boost confidence, and
-                                    create a sense of comfort and belonging.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Does Jayhawkk assist with healthy meal planning and nutrition?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Yes. Our carers can help prepare nutritious meals, ensure proper hydration, and support dietary
-                                    preferences or medical needs — all while encouraging a healthy and balanced diet.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>What kind of physical or exercise support is available?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>We assist with light exercise, stretching, and mobility routines suitable for each person's
-                                    ability level. The goal is to improve movement, balance, and overall strength safely and
-                                    effectively.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>How does Jayhawkk monitor health and wellbeing at home?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Our team keeps a close eye on changes in mood, appetite, energy levels, and general health. We
-                                    also communicate regularly with families, GPs, and other professionals to ensure continuity of
-                                    care and early intervention when needed.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Can Jayhawkk help with cognitive or memory support?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Absolutely. We engage clients in mentally stimulating activities such as puzzles, reminiscence
-                                    sessions, reading, or music therapy to support memory, concentration, and mental agility.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>How does Jayhawkk ensure a holistic approach to wellness?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>We see every person as unique. Our holistic care combines physical support, emotional wellbeing,
-                                    and social connection — creating a balanced, person-centred experience that nurtures overall
-                                    health and happiness.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>Is social engagement part of the Wellness and Health plan?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>Yes. We encourage clients to stay socially active — whether by chatting with loved ones, pursuing
-                                    hobbies, or joining local community events. Social connection is vital to maintaining a positive
-                                    and fulfilling life.</p>
-                            </div>
-                        </div>
-            
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <h3>How can I arrange Wellness and Health support with Jayhawkk?</h3>
-                                <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                            </div>
-                            <div class="faq-answer">
-                                <p>You can reach us through our website's Contact Page or call our friendly team. We'll schedule a
-                                    free care assessment to understand your needs and design a personalised care plan that supports
-                                    your wellbeing at home.</p>
-                            </div>
-                        </div>
-            
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="cta-section">
-                <div class="container">
-                    <h2 class="mb-4 heading">Ready to Start Your Wellness Journey?</h2>
-                    <p class="lead mb-4">Contact us today to learn more about our holistic approach to health and
-                        wellbeing</p>
-                    <a href="contact.html" class="btn btn-primary btn-lg">Get In Touch</a>
-                </div>
-            </div>
-
-            <footer class="site-footer bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <h2 class="footer-heading mb-4">About</h2>
-                            <p>We deliver bespoke, high-quality home care with professionalism, empathy, and unwavering
-                                commitment to dignity and independence.</p>
-                            <div class="my-5 social">
-                                <a href="#" class="pl-0 pr-3" aria-label="Facebook"><span class="icon-facebook"></span></a>
-                                <a href="#" class="pl-3 pr-3" aria-label="Twitter"><span class="icon-twitter"></span></a>
-                                <a href="https://www.instagram.com/jayhawkk.ltd/" class="pl-3 pr-3"
-                                    aria-label="Instagram"><span class="icon-instagram"></span></a>
-                                <a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="pl-3 pr-3"
-                                    aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <h2 class="footer-heading mb-4">Quick Links</h2>
-                                    <ul class="list-unstyled">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="services.html">Our Services</a></li>
-                                        <li><a href="resources.html">Resources</a></li>
-                                        <li><a href="testimonial.html">Testimonials</a></li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4">
-                                    <h2 class="footer-heading mb-4">Helpful Links</h2>
-                                    <ul class="list-unstyled">
-                                        <li><a href="residential-care.html">Residential Care</a></li>
-                                        <li><a href="specialist-care.html">Specialist Care</a></li>
-                                        <li><a href="companionship.html">Companionship & Support</a></li>
-                                        <li><a href="wellness.html">Wellness and Health</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4">
-                                    <h2 class="footer-heading mb-4">Resources</h2>
-                                    <ul class="list-unstyled">
-                                        <li><a href="resources.html#health-care">Health Care</a></li>
-                                        <li><a href="resources.html#person-centred-care">Person Centred Care</a></li>
-                                        <li><a href="resources.html#workforce-excellence">Workforce Excellence</a></li>
-                                        <li><a href="resources.html#safe-environments">Safe Environment</a></li>
-                                        <li><a href="resources.html#empowered-clients">Empowered Clients</a></li>
-                                        <li><a href="PrivacyAndTerms.html">Privacy & Terms</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <div class="border-top pt-5">
-                                <p class="copyright">
-                                    <small>Copyright &copy;
-                                        <script>document.write(new Date().getFullYear());</script> Jayhawkk. All rights
-                                        reserved.
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
 
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-        <script>
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="mb-3 heading">Our Wellness Approach</h2>
+                        <p class="lead">Comprehensive care that addresses all aspects of wellbeing</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🧘‍♀️</div>
+                            <h3>Emotional Wellbeing</h3>
+                            <p>We believe that emotional health is as important as physical care. Our team offers
+                                companionship, meaningful conversation, and emotional support to help clients feel
+                                valued, understood, and connected.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🥗</div>
+                            <h3>Nutrition & Hydration</h3>
+                            <p>Good nutrition is key to staying strong and healthy. We prepare balanced meals and
+                                encourage regular hydration to promote vitality, energy, and overall wellness.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🚶‍♂️</div>
+                            <h3>Physical Activity & Exercise</h3>
+                            <p>We support gentle exercise and movement routines designed around each person's abilities
+                                — helping to improve mobility, balance, and confidence in daily life.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">💊</div>
+                            <h3>Health Monitoring</h3>
+                            <p>Our trained carers keep a close eye on each client's general health, medication routines,
+                                and wellbeing. We work in partnership with families, GPs, and healthcare professionals
+                                to ensure consistent, safe support.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🧠</div>
+                            <h3>Cognitive Support</h3>
+                            <p>We provide engaging mental stimulation through memory games, reading, music, and
+                                conversation to keep the mind active and promote cognitive wellbeing.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🌿</div>
+                            <h3>Holistic Care</h3>
+                            <p>Our approach blends physical, emotional, and social care to create a sense of balance and
+                                fulfilment — supporting overall health and happiness.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🤝</div>
+                            <h3>Social Engagement</h3>
+                            <p>We encourage participation in hobbies, family time, and community activities to reduce
+                                loneliness, build confidence, and maintain a positive outlook.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="wellness-feature glow-card" tabindex="0">
+                            <div class="wellness-icon">🕊️</div>
+                            <h3>Peace of Mind</h3>
+                            <p>We aim to create a calm, safe, and nurturing environment where every person feels secure,
+                                respected, and at ease.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-container site-section">
+            <div class="container">
+                <div class="faq-header bg-primary glass">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Find answers to common questions about our Wellness and Health services</p>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What does Jayhawkk's Wellness and Health support include?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our Wellness and Health support focuses on the complete wellbeing of each person —
+                                physically,
+                                emotionally, and socially. This includes nutrition and hydration, gentle exercise,
+                                emotional
+                                companionship, mental stimulation, and regular health monitoring.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Who can benefit from Jayhawkk's Wellness and Health services?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our services are designed for individuals of all ages who may need support to maintain a
+                                healthy
+                                and independent lifestyle at home — including older adults, people living with
+                                disabilities, or
+                                anyone recovering from illness or hospital stays.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does Jayhawkk promote emotional wellbeing?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We understand the importance of emotional balance. Our carers offer companionship, active
+                                listening, and uplifting daily interactions to help reduce loneliness, boost confidence,
+                                and
+                                create a sense of comfort and belonging.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Does Jayhawkk assist with healthy meal planning and nutrition?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. Our carers can help prepare nutritious meals, ensure proper hydration, and support
+                                dietary
+                                preferences or medical needs — all while encouraging a healthy and balanced diet.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What kind of physical or exercise support is available?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We assist with light exercise, stretching, and mobility routines suitable for each
+                                person's
+                                ability level. The goal is to improve movement, balance, and overall strength safely and
+                                effectively.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does Jayhawkk monitor health and wellbeing at home?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our team keeps a close eye on changes in mood, appetite, energy levels, and general
+                                health. We
+                                also communicate regularly with families, GPs, and other professionals to ensure
+                                continuity of
+                                care and early intervention when needed.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can Jayhawkk help with cognitive or memory support?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. We engage clients in mentally stimulating activities such as puzzles,
+                                reminiscence
+                                sessions, reading, or music therapy to support memory, concentration, and mental
+                                agility.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does Jayhawkk ensure a holistic approach to wellness?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We see every person as unique. Our holistic care combines physical support, emotional
+                                wellbeing,
+                                and social connection — creating a balanced, person-centred experience that nurtures
+                                overall
+                                health and happiness.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is social engagement part of the Wellness and Health plan?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. We encourage clients to stay socially active — whether by chatting with loved ones,
+                                pursuing
+                                hobbies, or joining local community events. Social connection is vital to maintaining a
+                                positive
+                                and fulfilling life.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I arrange Wellness and Health support with Jayhawkk?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can reach us through our website's Contact Page or call our friendly team. We'll
+                                schedule a
+                                free care assessment to understand your needs and design a personalised care plan that
+                                supports
+                                your wellbeing at home.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cta-section">
+            <div class="container">
+                <h2 class="mb-4 heading">Ready to Start Your Wellness Journey?</h2>
+                <p class="lead mb-4">Contact us today to learn more about our holistic approach to health and
+                    wellbeing</p>
+                <a href="contact.html" class="btn btn-primary btn-lg">Get In Touch</a>
+            </div>
+        </div>
+
+        <footer class="site-footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2 class="footer-heading mb-4">About</h2>
+                        <p>We deliver bespoke, high-quality home care with professionalism, empathy, and unwavering
+                            commitment to dignity and independence.</p>
+                        <div class="my-5 social">
+                            <a href="https://www.facebook.com/share/1Di65FY8ei/?mibextid=wwXIfr" class="pl-0 pr-3"
+                                aria-label="Facebook"><span class="icon-facebook"></span></a>
+                            <a href="https://www.instagram.com/jayhawkk.ltd" class="pl-3 pr-3"
+                                aria-label="Instagram"><span class="icon-instagram"></span></a>
+                            <a href="https://www.linkedin.com/company/jayhawkk-ltd" class="pl-3 pr-3"
+                                aria-label="LinkedIn"><span class="icon-linkedin"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h2 class="footer-heading mb-4">Quick Links</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="services.html">Our Services</a></li>
+                                    <li><a href="resources.html">Resources</a></li>
+                                    <li><a href="testimonial.html">Testimonials</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <h2 class="footer-heading mb-4">Helpful Links</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="residential-care.html">Residential Care</a></li>
+                                    <li><a href="specialist-care.html">Specialist Care</a></li>
+                                    <li><a href="companionship.html">Companionship & Support</a></li>
+                                    <li><a href="wellness.html">Wellness and Health</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <h2 class="footer-heading mb-4">Resources</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="resources.html#health-care">Health Care</a></li>
+                                    <li><a href="resources.html#person-centred-care">Person Centred Care</a></li>
+                                    <li><a href="resources.html#workforce-excellence">Workforce Excellence</a></li>
+                                    <li><a href="resources.html#safe-environments">Safe Environment</a></li>
+                                    <li><a href="resources.html#empowered-clients">Empowered Clients</a></li>
+                                    <li><a href="PrivacyAndTerms.html">Privacy & Terms</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <div class="border-top pt-5">
+                            <p class="copyright">
+                                <small>Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> Jayhawkk. All rights
+                                    reserved.
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
         (function () {
             function closeAll(except) {
                 document.querySelectorAll('.faq-item').forEach(function (it) {
@@ -675,8 +725,8 @@
                 bindFAQ();
             }
         })();
-        </script>
-        <script src="js/faq.js"></script>
+    </script>
+    <script src="js/faq.js"></script>
 </body>
 
 </html>
