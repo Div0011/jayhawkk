@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply inline-block px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ease-in-out;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-white border border-primary hover:bg-primary-dark hover:border-primary-dark shadow-md hover:shadow-lg hover:-translate-y-0.5;
+    }
+
+    .btn-hero {
+        @apply bg-accent text-white border-none hover:bg-white hover:text-accent shadow-lg;
+    }
+
+    .glow-card {
+        @apply bg-white rounded-2xl border border-gray-100 shadow-glow transition-all duration-300 hover:shadow-glow-hover hover:-translate-y-1;
+    }
+}
+
+/* Mobile Menu Logic Hook */
+body.offcanvas-menu .site-mobile-menu {
+    @apply translate-x-0;
+}
+
+/* Add a backdrop when menu is open */
+body.offcanvas-menu::before {
+    content: '';
+    @apply fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-300;
+}
+
+/* Mobile Nav Styling Overrides for Cloned Content */
+.site-mobile-menu .site-nav-wrap {
+    @apply p-0 m-0 list-none relative;
+}
+
+.site-mobile-menu .site-nav-wrap li {
+    @apply block relative w-full;
+}
+
+.site-mobile-menu .site-nav-wrap li a {
+    @apply block px-5 py-3 text-surface-dark hover:text-primary border-b border-gray-100 font-medium;
+}
+
+/* Ensure clicks work */
+.site-mobile-menu-body {
+    @apply relative z-50;
+}
+
+.site-mobile-menu .site-nav-wrap .arrow-collapse {
+    @apply absolute top-0 right-0 p-3 cursor-pointer z-50 hover:bg-black/5 rounded-full;
+}
+
+.site-mobile-menu .site-nav-wrap .collapse {
+    @apply hidden;
+}
+
+.site-mobile-menu .site-nav-wrap .collapse.show {
+    @apply block bg-surface-soft pl-4;
+}
