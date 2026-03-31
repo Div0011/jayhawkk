@@ -210,13 +210,25 @@ h5,
   box-shadow: 0 10px 25px var(--accent-30);
 }
 
-.site-navbar .site-logo a img {
-  height: 50px;
-  transition: all 0.3s ease;
+.site-navbar .site-logo {
+  display: block;   /* Ensure container is visible */
 }
 
-.site-navbar .site-logo a:hover img {
-  filter: drop-shadow(0 0 10px var(--accent));
+.site-navbar .site-logo a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-navbar .site-logo a img.header-logo {
+  height: 65px;     /* Increased for better visibility */
+  width: auto;      /* Keep aspect ratio */
+  max-width: 100%;
+  display: block; 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-navbar .site-logo a:hover img.header-logo {
+  filter: drop-shadow(0 0 15px var(--accent));
   transform: scale(1.05);
 }
 
@@ -726,6 +738,10 @@ h5,
 
 .blog-entry img.img-fluid {
   border-radius: 14px;
+  position: relative;
+  z-index: 5; /* Ensure image is on top of glow effects */
+  display: block;
+  width: 100%;
 }
 
 /* ---------- CUSTOM MEDIA ---------- */
